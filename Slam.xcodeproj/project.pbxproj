@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07CBE7BD1AA104FE00228BE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CBE7BC1AA104FE00228BE9 /* AppDelegate.swift */; };
+		07CBE7BF1AA104FE00228BE9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CBE7BE1AA104FE00228BE9 /* ViewController.swift */; };
+		07CBE7C21AA104FE00228BE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07CBE7C01AA104FE00228BE9 /* Main.storyboard */; };
+		07CBE7C41AA104FE00228BE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07CBE7C31AA104FE00228BE9 /* Images.xcassets */; };
+		07CBE7C71AA104FE00228BE9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07CBE7C51AA104FE00228BE9 /* LaunchScreen.xib */; };
+		07CBE7D31AA104FE00228BE9 /* SlamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CBE7D21AA104FE00228BE9 /* SlamTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		07CBE7CD1AA104FE00228BE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07CBE7AF1AA104FE00228BE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07CBE7B61AA104FE00228BE9;
+			remoteInfo = Slam;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		07CBE7B71AA104FE00228BE9 /* Slam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07CBE7BB1AA104FE00228BE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07CBE7BC1AA104FE00228BE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		07CBE7BE1AA104FE00228BE9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		07CBE7C11AA104FE00228BE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		07CBE7C31AA104FE00228BE9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		07CBE7C61AA104FE00228BE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		07CBE7CC1AA104FE00228BE9 /* SlamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07CBE7D11AA104FE00228BE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07CBE7D21AA104FE00228BE9 /* SlamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlamTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07CBE7B41AA104FE00228BE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07CBE7C91AA104FE00228BE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07CBE7AE1AA104FE00228BE9 = {
+			isa = PBXGroup;
+			children = (
+				07CBE7B91AA104FE00228BE9 /* Slam */,
+				07CBE7CF1AA104FE00228BE9 /* SlamTests */,
+				07CBE7B81AA104FE00228BE9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		07CBE7B81AA104FE00228BE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07CBE7B71AA104FE00228BE9 /* Slam.app */,
+				07CBE7CC1AA104FE00228BE9 /* SlamTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		07CBE7B91AA104FE00228BE9 /* Slam */ = {
+			isa = PBXGroup;
+			children = (
+				07CBE7BC1AA104FE00228BE9 /* AppDelegate.swift */,
+				07CBE7BE1AA104FE00228BE9 /* ViewController.swift */,
+				07CBE7C01AA104FE00228BE9 /* Main.storyboard */,
+				07CBE7C31AA104FE00228BE9 /* Images.xcassets */,
+				07CBE7C51AA104FE00228BE9 /* LaunchScreen.xib */,
+				07CBE7BA1AA104FE00228BE9 /* Supporting Files */,
+			);
+			path = Slam;
+			sourceTree = "<group>";
+		};
+		07CBE7BA1AA104FE00228BE9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				07CBE7BB1AA104FE00228BE9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		07CBE7CF1AA104FE00228BE9 /* SlamTests */ = {
+			isa = PBXGroup;
+			children = (
+				07CBE7D21AA104FE00228BE9 /* SlamTests.swift */,
+				07CBE7D01AA104FE00228BE9 /* Supporting Files */,
+			);
+			path = SlamTests;
+			sourceTree = "<group>";
+		};
+		07CBE7D01AA104FE00228BE9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				07CBE7D11AA104FE00228BE9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		07CBE7B61AA104FE00228BE9 /* Slam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07CBE7D61AA104FE00228BE9 /* Build configuration list for PBXNativeTarget "Slam" */;
+			buildPhases = (
+				07CBE7B31AA104FE00228BE9 /* Sources */,
+				07CBE7B41AA104FE00228BE9 /* Frameworks */,
+				07CBE7B51AA104FE00228BE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Slam;
+			productName = Slam;
+			productReference = 07CBE7B71AA104FE00228BE9 /* Slam.app */;
+			productType = "com.apple.product-type.application";
+		};
+		07CBE7CB1AA104FE00228BE9 /* SlamTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07CBE7D91AA104FE00228BE9 /* Build configuration list for PBXNativeTarget "SlamTests" */;
+			buildPhases = (
+				07CBE7C81AA104FE00228BE9 /* Sources */,
+				07CBE7C91AA104FE00228BE9 /* Frameworks */,
+				07CBE7CA1AA104FE00228BE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07CBE7CE1AA104FE00228BE9 /* PBXTargetDependency */,
+			);
+			name = SlamTests;
+			productName = SlamTests;
+			productReference = 07CBE7CC1AA104FE00228BE9 /* SlamTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07CBE7AF1AA104FE00228BE9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "8th Light";
+				TargetAttributes = {
+					07CBE7B61AA104FE00228BE9 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					07CBE7CB1AA104FE00228BE9 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 07CBE7B61AA104FE00228BE9;
+					};
+				};
+			};
+			buildConfigurationList = 07CBE7B21AA104FE00228BE9 /* Build configuration list for PBXProject "Slam" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 07CBE7AE1AA104FE00228BE9;
+			productRefGroup = 07CBE7B81AA104FE00228BE9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				07CBE7B61AA104FE00228BE9 /* Slam */,
+				07CBE7CB1AA104FE00228BE9 /* SlamTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07CBE7B51AA104FE00228BE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07CBE7C21AA104FE00228BE9 /* Main.storyboard in Resources */,
+				07CBE7C71AA104FE00228BE9 /* LaunchScreen.xib in Resources */,
+				07CBE7C41AA104FE00228BE9 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07CBE7CA1AA104FE00228BE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07CBE7B31AA104FE00228BE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07CBE7BF1AA104FE00228BE9 /* ViewController.swift in Sources */,
+				07CBE7BD1AA104FE00228BE9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07CBE7C81AA104FE00228BE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07CBE7D31AA104FE00228BE9 /* SlamTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		07CBE7CE1AA104FE00228BE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07CBE7B61AA104FE00228BE9 /* Slam */;
+			targetProxy = 07CBE7CD1AA104FE00228BE9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		07CBE7C01AA104FE00228BE9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07CBE7C11AA104FE00228BE9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		07CBE7C51AA104FE00228BE9 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07CBE7C61AA104FE00228BE9 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		07CBE7D41AA104FE00228BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		07CBE7D51AA104FE00228BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		07CBE7D71AA104FE00228BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Slam/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		07CBE7D81AA104FE00228BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Slam/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		07CBE7DA1AA104FE00228BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SlamTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slam.app/Slam";
+			};
+			name = Debug;
+		};
+		07CBE7DB1AA104FE00228BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SlamTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slam.app/Slam";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07CBE7B21AA104FE00228BE9 /* Build configuration list for PBXProject "Slam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07CBE7D41AA104FE00228BE9 /* Debug */,
+				07CBE7D51AA104FE00228BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07CBE7D61AA104FE00228BE9 /* Build configuration list for PBXNativeTarget "Slam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07CBE7D71AA104FE00228BE9 /* Debug */,
+				07CBE7D81AA104FE00228BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		07CBE7D91AA104FE00228BE9 /* Build configuration list for PBXNativeTarget "SlamTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07CBE7DA1AA104FE00228BE9 /* Debug */,
+				07CBE7DB1AA104FE00228BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 07CBE7AF1AA104FE00228BE9 /* Project object */;
+}
