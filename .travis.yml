@@ -1,0 +1,4 @@
+language: objective-c
+script:
+- xcodebuild -project Slam.xcodeproj -scheme Slam clean build -sdk iphonesimulator8.1
+- xcodebuild -project Slam.xcodeproj -scheme Slam build test -sdk iphonesimulator8.1
