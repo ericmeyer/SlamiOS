@@ -12,4 +12,9 @@ public class ShowQueueViewController: UIViewController {
         queue = Queue(display: currentQueue)
         queueManager = QueueManager(queue: queue!)
     }
+
+    @IBAction func cancelAddMatch(segue:UIStoryboardSegue) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
 }
