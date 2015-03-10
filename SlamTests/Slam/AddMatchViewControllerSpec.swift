@@ -16,21 +16,20 @@ class AddMatchViewControllerSpec: QuickSpec {
 
         describe("Adding a match to the queue") {
 
-            var controller = AddMatchViewController()
+            let controller = AddMatchViewController()
+            let playerOneInput = UITextField()
+            let playerTwoInput = UITextField()
             let interactor = MockAddMatchInteractor()
 
             beforeEach() {
-                let bundle = NSBundle.mainBundle()
-                let storyboard = UIStoryboard(name: "Main", bundle: bundle)
-                controller = storyboard.instantiateViewControllerWithIdentifier("AddMatchController") as AddMatchViewController
-                UIViewController().presentViewController(controller, animated: false, completion: nil)
-
+                controller.playerOneInput = playerOneInput
+                controller.playerTwoInput = playerTwoInput
                 controller.interactor = interactor
             }
 
             it("delegates to the interactor") {
-                controller.playerOneInput?.text = "Eric"
-                controller.playerTwoInput?.text = "Taka"
+                controller.playerOneInput!.text = "Eric"
+                controller.playerTwoInput!.text = "Taka"
 
                 controller.addMatch()
 
