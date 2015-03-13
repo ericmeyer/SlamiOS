@@ -1,6 +1,6 @@
 import UIKit
 
-public class AddMatchViewController: UIViewController {
+public class AddMatchViewController: UIViewController, AddMatchView {
 
     public var interactor : AddMatchInteractor?
 
@@ -9,7 +9,9 @@ public class AddMatchViewController: UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        interactor = DefaultAddMatchInteractor()
+        interactor = DefaultAddMatchInteractor(
+            view: self
+        )
     }
 
     @IBAction public func addMatch() {
@@ -17,6 +19,10 @@ public class AddMatchViewController: UIViewController {
             playerOne: playerOneInput!.text,
             playerTwo: playerTwoInput!.text
         )
+    }
+
+    public func matchWasAdded() {
+        NSLog("Refresh/show the updated queue")
     }
 
 }
