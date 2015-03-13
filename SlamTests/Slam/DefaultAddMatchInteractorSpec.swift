@@ -2,19 +2,6 @@ import Quick
 import Nimble
 import Slam
 
-class MockAddMatchView : AddMatchView {
-
-    var wasToldMatchAdded : Bool
-
-    init() {
-        self.wasToldMatchAdded = false
-    }
-
-    func matchWasAdded() {
-        self.wasToldMatchAdded = true
-    }
-
-}
 class DefaultAddMatchInteractorSpec: QuickSpec {
 
     override func spec() {
