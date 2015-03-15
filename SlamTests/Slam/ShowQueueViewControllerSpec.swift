@@ -1,23 +1,32 @@
 import Quick
 import Nimble
 import Slam
+import UIKit
 
 class ShowQueueViewControllerSpec: QuickSpec {
     override func spec() {
-        context("#viewDidLoad") {
+        describe("Initializing delegates") {
             it("creates the queue") {
-                let subject = ShowQueueViewController()
-                expect(subject.queue).to(beNil())
-                let noop = subject.view
-                expect(subject.queue).notTo(beNil())
+                let tableView = UITableView()
+                let controller = ShowQueueViewController()
+                controller.currentQueue = tableView
+                expect(controller.queue).to(beNil())
+
+                controller.initializeDelegates()
+
+                expect(controller.queue).notTo(beNil())
             }
 
-            it("creates the queueManager with the queue") {
-                let subject = ShowQueueViewController()
-                expect(subject.queueManager).to(beNil())
-                let noop = subject.view
-                let queueManager = subject.queueManager!
-                expect(queueManager.queue).to(beIdenticalTo(subject.queue))
+            it("creates the queue manager with the queue") {
+                let tableView = UITableView()
+                let controller = ShowQueueViewController()
+                controller.currentQueue = tableView
+                expect(controller.queueManager).to(beNil())
+
+                controller.initializeDelegates()
+
+                let queueManager = controller.queueManager!
+                expect(queueManager.queueView).to(beIdenticalTo(controller.queue))
             }
         }
     }
