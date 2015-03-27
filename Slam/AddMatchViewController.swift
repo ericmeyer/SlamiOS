@@ -6,11 +6,20 @@ public class AddMatchViewController: UIViewController, AddMatchView {
 
     @IBOutlet weak public var playerOneInput: UITextField!
     @IBOutlet weak public var playerTwoInput: UITextField!
+    @IBOutlet weak public var addMatchButton: UIButton!
 
     override public func viewDidLoad() {
         super.viewDidLoad()
         interactor = DefaultAddMatchInteractor(
             view: self
+        )
+        addMatchButton.enabled = false
+    }
+
+    @IBAction public func validateInput() {
+        interactor?.validateInput(
+            playerOne: playerOneInput!.text,
+            playerTwo: playerTwoInput!.text
         )
     }
 
@@ -23,6 +32,14 @@ public class AddMatchViewController: UIViewController, AddMatchView {
 
     public func matchWasAdded() {
         NSLog("Refresh/show the updated queue")
+    }
+
+    public func inputIsValid() {
+        addMatchButton.enabled = true
+    }
+
+    public func inputIsInvalid() {
+        addMatchButton.enabled = false
     }
 
 }

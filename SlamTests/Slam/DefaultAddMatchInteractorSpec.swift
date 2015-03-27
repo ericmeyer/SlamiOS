@@ -20,6 +20,47 @@ class DefaultAddMatchInteractorSpec: QuickSpec {
                 expect(view.wasToldMatchAdded).to(beTrue())
             }
         }
+
+        describe("Validating the user input") {
+            var view = MockAddMatchView()
+            var interactor = DefaultAddMatchInteractor(
+                view: view
+            )
+
+            beforeEach() {
+                view = MockAddMatchView()
+                interactor = DefaultAddMatchInteractor(
+                    view: view
+                )
+            }
+
+            it("lets the view know that the input is valid") {
+                interactor.validateInput(
+                    playerOne: "Eric",
+                    playerTwo: "Taka"
+                )
+
+                expect(view.wasToldInputValid).to(beTrue())
+            }
+
+            it("is invalid with no player one") {
+                interactor.validateInput(
+                    playerOne: "",
+                    playerTwo: "Taka"
+                )
+
+                expect(view.wasToldInputInvalid).to(beTrue())
+            }
+
+            it("is invalid with no player two") {
+                interactor.validateInput(
+                    playerOne: "Eric",
+                    playerTwo: ""
+                )
+
+                expect(view.wasToldInputInvalid).to(beTrue())
+            }
+        }
     }
 
 }
