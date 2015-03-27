@@ -8,8 +8,15 @@ public class DefaultAddMatchInteractor : AddMatchInteractor {
     }
 
     public func attemptAdd(#playerOne: String, playerTwo: String) {
-        NSLog("Adding %@ vs %@", playerOne, playerTwo)
         view.matchWasAdded()
+    }
+
+    public func validateInput(#playerOne: String, playerTwo: String) {
+        if (playerOne == "" || playerTwo == "") {
+            view.inputIsInvalid()
+        } else {
+            view.inputIsValid()
+        }
     }
 
 }
