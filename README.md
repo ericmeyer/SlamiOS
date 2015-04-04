@@ -1,6 +1,6 @@
 # SlamiOS
 
-[![Build Status](https://travis-ci.org/ericmeyer/SlamiOS.svg)](https://travis-ci.org/ericmeyer/SlamiOS)
+[![Build Status](https://travis-ci.org/ericmeyer/SlamiOS.svg?branch=master)](https://travis-ci.org/ericmeyer/SlamiOS)
 
 #### Contributing
 1. clone the repsoitory
