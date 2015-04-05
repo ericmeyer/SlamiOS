@@ -13,9 +13,9 @@
 		073F06051AB307580098654F /* DefaultAddMatchInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA28615D2BA509BD39EAA86 /* DefaultAddMatchInteractorSpec.swift */; };
 		073F06121AB308780098654F /* AddMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073F06101AB3082E0098654F /* AddMatchView.swift */; };
 		075397071AAA46EB000655A5 /* AddMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075397061AAA46EB000655A5 /* AddMatchViewController.swift */; };
+		07A937E21AD0E3F0001F4F96 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 07CBE7FB1AA1065500228BE9 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		07A937E31AD0E3FB001F4F96 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 07CBE7E41AA1064F00228BE9 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		07CBE7BD1AA104FE00228BE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CBE7BC1AA104FE00228BE9 /* AppDelegate.swift */; };
-		07CBE8001AA106A500228BE9 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07CBE7E41AA1064F00228BE9 /* Nimble.framework */; };
-		07CBE8011AA106A500228BE9 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07CBE7F51AA1065500228BE9 /* Quick.framework */; };
 		2FA280C3C24151CE29A63B46 /* DefaultAddMatchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA28CAEE60C8C5936B01266 /* DefaultAddMatchInteractor.swift */; };
 		2FA282448BF611638AAE8C26 /* MockAddMatchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA28F87589F36D89DA68BC1 /* MockAddMatchInteractor.swift */; };
 		6C4E1CA51AA60C9E0099DE4C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E1CA11AA60C9E0099DE4C /* LaunchScreen.xib */; };
@@ -29,6 +29,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		078AC1681AD0E5D500526939 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07CBE7EB1AA1065500228BE9 /* Quick.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A5D117B19473F2100F6D13D;
+			remoteInfo = "Quick-iOS";
+		};
+		078AC16A1AD0E5D500526939 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07CBE7DC1AA1064F00228BE9 /* Nimble.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F1A74281940169200FFFC47;
+			remoteInfo = "Nimble-iOS";
+		};
 		07CBE7CD1AA104FE00228BE9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 07CBE7AF1AA104FE00228BE9 /* Project object */;
@@ -108,6 +122,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		075EC99B1AD0E26A0034239C /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				07A937E31AD0E3FB001F4F96 /* Nimble.framework in Copy Frameworks */,
+				07A937E21AD0E3F0001F4F96 /* Quick.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		07327B301AAA51A800F27545 /* AddMatchViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMatchViewControllerSpec.swift; sourceTree = "<group>"; };
 		073B10571AB30DCA00D922A2 /* MockAddMatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAddMatchView.swift; sourceTree = "<group>"; };
@@ -146,8 +175,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07CBE8001AA106A500228BE9 /* Nimble.framework in Frameworks */,
-				07CBE8011AA106A500228BE9 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +347,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07CBE7D91AA104FE00228BE9 /* Build configuration list for PBXNativeTarget "SlamTests" */;
 			buildPhases = (
+				075EC99B1AD0E26A0034239C /* Copy Frameworks */,
 				07CBE7C81AA104FE00228BE9 /* Sources */,
 				07CBE7C91AA104FE00228BE9 /* Frameworks */,
 				07CBE7CA1AA104FE00228BE9 /* Resources */,
@@ -327,6 +355,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				078AC1691AD0E5D500526939 /* PBXTargetDependency */,
+				078AC16B1AD0E5D500526939 /* PBXTargetDependency */,
 				07CBE7CE1AA104FE00228BE9 /* PBXTargetDependency */,
 			);
 			name = SlamTests;
@@ -506,6 +536,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		078AC1691AD0E5D500526939 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Quick-iOS";
+			targetProxy = 078AC1681AD0E5D500526939 /* PBXContainerItemProxy */;
+		};
+		078AC16B1AD0E5D500526939 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Nimble-iOS";
+			targetProxy = 078AC16A1AD0E5D500526939 /* PBXContainerItemProxy */;
+		};
 		07CBE7CE1AA104FE00228BE9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 07CBE7B61AA104FE00228BE9 /* Slam */;
