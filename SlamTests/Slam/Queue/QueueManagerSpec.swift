@@ -51,6 +51,16 @@ class QueueManagerSpec: QuickSpec {
 
                     expect(mockAPI!.receivedGetQueue).to(beTrue())
                 }
+
+                it("executes the callback after the queue is updated") {
+                    var callbackCalled = false
+                    let callback = {() -> Void in
+                        callbackCalled = true
+                    }
+                    queueManager!.reloadQueue(callback)
+
+                    expect(callbackCalled).to(beTrue())
+                }
             }
         }
     }

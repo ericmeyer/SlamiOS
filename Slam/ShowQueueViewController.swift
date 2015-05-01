@@ -3,6 +3,9 @@ import UIKit
 public class ShowQueueViewController: UIViewController {
     @IBOutlet weak public var currentQueue: UITableView!
 
+    @IBOutlet public weak var refreshQueueButton: UIBarButtonItem!
+    @IBOutlet public weak var addMatchToQueueButton: UIBarButtonItem!
+
     public var queueManager: QueueManagerProtocol?
     public var queue: QueueView?
 
@@ -24,8 +27,20 @@ public class ShowQueueViewController: UIViewController {
         queueManager!.loadQueue()
     }
 
+
     @IBAction public func clickRefreshQueue(sender: AnyObject) {
-        queueManager!.reloadQueue({() in println("refresh queue")})
+        disableButtons()
+        queueManager!.reloadQueue(enableButtons)
+    }
+
+    public func enableButtons() {
+        refreshQueueButton.enabled = true
+        addMatchToQueueButton.enabled = true
+    }
+
+    public func disableButtons() {
+        refreshQueueButton.enabled = false
+        addMatchToQueueButton.enabled = false
     }
 
     @IBAction func cancelAddMatch(segue:UIStoryboardSegue) {

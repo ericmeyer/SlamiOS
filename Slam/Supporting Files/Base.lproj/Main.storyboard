@@ -53,7 +53,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addMatchToQueueButton" destination="pMp-NY-JSu" id="7yU-E2-Q9l"/>
                         <outlet property="currentQueue" destination="m1a-Jt-ZCh" id="YIJ-MT-qRm"/>
+                        <outlet property="refreshQueueButton" destination="WK8-TP-Cdp" id="GS8-Zk-ZYl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

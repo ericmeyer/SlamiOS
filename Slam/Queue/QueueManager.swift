@@ -18,6 +18,7 @@ public class QueueManager: QueueManagerProtocol {
     public func reloadQueue(callback: () -> Void) {
         api.getQueue({(matches: [Match]) in
             self.queueView.showMatches(matches)
+            callback()
         })
     }
 }
