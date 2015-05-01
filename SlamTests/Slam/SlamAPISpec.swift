@@ -8,7 +8,7 @@ class SlamAPISpec: QuickSpec {
         if NSJSONSerialization.isValidJSONObject(value) {
             if let data = NSJSONSerialization.dataWithJSONObject(value, options: nil, error: nil) {
                 if let json = NSString(data: data, encoding: NSUTF8StringEncoding) {
-                    return json
+                    return json as String
                 }
             }
         }

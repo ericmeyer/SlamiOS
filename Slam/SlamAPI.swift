@@ -12,10 +12,10 @@ public class SlamAPI {
         var request = NSMutableURLRequest(
             URL: NSURL(string: getCurrentQueueURL)!
         )
-        httpClient.makeRequest(request, {(data: NSData) in
-            var matchDataList: [NSDictionary] = self.deserializeJSON(data) as [NSDictionary]
+        httpClient.makeRequest(request, onSuccess: {(data: NSData) in
+            var matchDataList: [NSDictionary] = self.deserializeJSON(data) as! [NSDictionary]
             callback(matchDataList.map({matchData in
-                Match(matchData: matchData as [String : String])
+                Match(matchData: matchData as! [String : String])
             }))
         })
     }

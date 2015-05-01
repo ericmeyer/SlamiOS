@@ -3,5 +3,5 @@ notifications:
 osx_image: xcode611
 language: objective-c
 script:
-- xctool -project Slam.xcodeproj -scheme Slam clean build -sdk iphonesimulator8.1
-- xctool -project Slam.xcodeproj -scheme Slam build test -sdk iphonesimulator8.1
+- xctool -project Slam.xcodeproj -scheme Slam clean build -sdk iphonesimulator8.3
+- xctool -project Slam.xcodeproj -scheme Slam build test -sdk iphonesimulator8.3
