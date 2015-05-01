@@ -31,6 +31,27 @@ class QueueManagerSpec: QuickSpec {
                     expect(queueView!.wasShowMatchesCalled).to(beTrue())
                 }
             }
+
+            describe("Reloading the queue") {
+                var queueView: MockQueueView?
+                var mockAPI: MockSlamAPI?
+                var queueManager: QueueManager?
+
+                beforeEach({
+                    queueView = MockQueueView(display: UITableView())
+                    queueManager = QueueManager(queueView: queueView!)
+                    mockAPI = MockSlamAPI(httpClient: MockHTTPClient())
+                    queueManager!.api = mockAPI!
+                })
+
+                it("defers to the API to fetch the latest queue data") {
+                    let callback = {() -> Void in
+                    }
+                    queueManager!.reloadQueue(callback)
+
+                    expect(mockAPI!.receivedGetQueue).to(beTrue())
+                }
+            }
         }
     }
 }

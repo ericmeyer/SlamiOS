@@ -29,5 +29,18 @@ class ShowQueueViewControllerSpec: QuickSpec {
                 expect(queueManager.queueView).to(beIdenticalTo(controller.queue))
             }
         }
+
+        describe("clicking the refresh queue button") {
+            it("reloads the queue") {
+                let button = UIButton()
+                let tableView = UITableView()
+                let controller = ShowQueueViewController()
+                let manager = MockQueueManager()
+                controller.currentQueue = tableView
+                controller.queueManager = manager
+                controller.clickRefreshQueue(button)
+                expect(manager.reloadQueueCalled).to(beTrue())
+            }
+        }
     }
 }

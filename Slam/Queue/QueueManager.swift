@@ -1,6 +1,6 @@
 import Foundation
 
-public class QueueManager {
+public class QueueManager: QueueManagerProtocol {
     public let queueView: QueueView
     public var api: SlamAPI
 
@@ -10,6 +10,12 @@ public class QueueManager {
     }
 
     public func loadQueue() {
+        api.getQueue({(matches: [Match]) in
+            self.queueView.showMatches(matches)
+        })
+    }
+
+    public func reloadQueue(callback: () -> Void) {
         api.getQueue({(matches: [Match]) in
             self.queueView.showMatches(matches)
         })

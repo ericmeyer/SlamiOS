@@ -3,7 +3,7 @@ import UIKit
 public class ShowQueueViewController: UIViewController {
     @IBOutlet weak public var currentQueue: UITableView!
 
-    public var queueManager: QueueManager?
+    public var queueManager: QueueManagerProtocol?
     public var queue: QueueView?
 
     override public func viewDidLoad() {
@@ -24,6 +24,10 @@ public class ShowQueueViewController: UIViewController {
         queueManager!.loadQueue()
     }
 
+    @IBAction public func clickRefreshQueue(sender: AnyObject) {
+        queueManager!.reloadQueue({() in println("refresh queue")})
+    }
+
     @IBAction func cancelAddMatch(segue:UIStoryboardSegue) {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -37,5 +41,4 @@ public class ShowQueueViewController: UIViewController {
             return false
         }
     }
-
 }

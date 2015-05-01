@@ -37,6 +37,8 @@
 		6CD021F41AB379A100E5C44D /* SlamAPISpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD021F31AB379A100E5C44D /* SlamAPISpec.swift */; };
 		6CE7C8211AB5FCB9007698F0 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7C8201AB5FCB9007698F0 /* Match.swift */; };
 		6CE7C8321AB609A7007698F0 /* MatchSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7C8311AB609A7007698F0 /* MatchSpec.swift */; };
+		FF7041431AF403A800AAACF0 /* QueueManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7041421AF403A800AAACF0 /* QueueManagerProtocol.swift */; };
+		FF70414D1AF40D1500AAACF0 /* MockQueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF70414C1AF40D1500AAACF0 /* MockQueueManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +185,8 @@
 		6CD021F31AB379A100E5C44D /* SlamAPISpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlamAPISpec.swift; sourceTree = "<group>"; };
 		6CE7C8201AB5FCB9007698F0 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		6CE7C8311AB609A7007698F0 /* MatchSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchSpec.swift; sourceTree = "<group>"; };
+		FF7041421AF403A800AAACF0 /* QueueManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManagerProtocol.swift; sourceTree = "<group>"; };
+		FF70414C1AF40D1500AAACF0 /* MockQueueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockQueueManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +329,7 @@
 				6C4E1CAA1AA60D560099DE4C /* ShowQueueViewController.swift */,
 				6C4E1CA81AA60D560099DE4C /* QueueView.swift */,
 				6C4E1CA91AA60D560099DE4C /* QueueManager.swift */,
+				FF7041421AF403A800AAACF0 /* QueueManagerProtocol.swift */,
 			);
 			name = ShowQueue;
 			path = Queue;
@@ -356,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				6C60C1C51AB70E1A00E8ED5E /* MockQueueView.swift */,
+				FF70414C1AF40D1500AAACF0 /* MockQueueManager.swift */,
 			);
 			name = ShowQueue;
 			sourceTree = "<group>";
@@ -626,6 +632,7 @@
 				6CD021F11AB377EA00E5C44D /* SlamAPI.swift in Sources */,
 				0732B88C1AAA58DD008DEF25 /* AddMatchInteractor.swift in Sources */,
 				6C4E1CAC1AA60D560099DE4C /* QueueManager.swift in Sources */,
+				FF7041431AF403A800AAACF0 /* QueueManagerProtocol.swift in Sources */,
 				6CE7C8211AB5FCB9007698F0 /* Match.swift in Sources */,
 				6C4E1CAD1AA60D560099DE4C /* ShowQueueViewController.swift in Sources */,
 				075397071AAA46EB000655A5 /* AddMatchViewController.swift in Sources */,
@@ -645,6 +652,7 @@
 				074377911ACF53F900A63678 /* MockHTTPClient.swift in Sources */,
 				073B10581AB30DCA00D922A2 /* MockAddMatchView.swift in Sources */,
 				6CD021EE1AB3778200E5C44D /* MockSlamAPI.swift in Sources */,
+				FF70414D1AF40D1500AAACF0 /* MockQueueManager.swift in Sources */,
 				073F06051AB307580098654F /* DefaultAddMatchInteractorSpec.swift in Sources */,
 				6CD021F41AB379A100E5C44D /* SlamAPISpec.swift in Sources */,
 				6C60C1C61AB70E1A00E8ED5E /* MockQueueView.swift in Sources */,
