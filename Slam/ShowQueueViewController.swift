@@ -6,7 +6,7 @@ public class ShowQueueViewController: UIViewController {
     @IBOutlet public weak var refreshQueueButton: UIBarButtonItem!
     @IBOutlet public weak var addMatchToQueueButton: UIBarButtonItem!
 
-    public var queueManager: QueueManagerProtocol?
+    public var queueManager: QueueManager?
     public var queue: QueueView?
 
     override public func viewDidLoad() {
@@ -19,7 +19,7 @@ public class ShowQueueViewController: UIViewController {
 
     public func initializeDelegates() {
         queue = QueueView(display: currentQueue)
-        queueManager = QueueManager(queueView: queue!)
+        queueManager = APIManagedQueue(queueView: queue!)
         currentQueue!.dataSource = queue
     }
 

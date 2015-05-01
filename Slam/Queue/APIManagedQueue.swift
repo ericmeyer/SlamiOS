@@ -1,6 +1,6 @@
 import Foundation
 
-public class QueueManager: QueueManagerProtocol {
+public class APIManagedQueue: QueueManager {
     public let queueView: QueueView
     public var api: SlamAPI
 

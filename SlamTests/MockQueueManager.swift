@@ -1,10 +1,9 @@
 import Slam
 import UIKit
 
-class MockQueueManager: QueueManagerProtocol {
+class MockQueueManager: QueueManager {
     var loadQueueCalled = false
     var reloadQueueCalled = false
-    var reloadQueueCalledWith: (() -> Void)?
     var queueView: QueueView
 
     init() {
@@ -17,6 +16,5 @@ class MockQueueManager: QueueManagerProtocol {
 
     func reloadQueue(callback: () -> Void) {
         reloadQueueCalled = true
-        reloadQueueCalledWith = callback
     }
 }

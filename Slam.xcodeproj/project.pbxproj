@@ -24,10 +24,10 @@
 		2FA28600E06D6B94B6F01325 /* AsynchronousHTTPClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA284073CE57B2309329F65 /* AsynchronousHTTPClientSpec.swift */; };
 		6C4E1CA51AA60C9E0099DE4C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E1CA11AA60C9E0099DE4C /* LaunchScreen.xib */; };
 		6C4E1CAB1AA60D560099DE4C /* QueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E1CA81AA60D560099DE4C /* QueueView.swift */; };
-		6C4E1CAC1AA60D560099DE4C /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E1CA91AA60D560099DE4C /* QueueManager.swift */; };
+		6C4E1CAC1AA60D560099DE4C /* APIManagedQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E1CA91AA60D560099DE4C /* APIManagedQueue.swift */; };
 		6C4E1CAD1AA60D560099DE4C /* ShowQueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E1CAA1AA60D560099DE4C /* ShowQueueViewController.swift */; };
 		6C4E1CB01AA60DA60099DE4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E1CAE1AA60DA60099DE4C /* Main.storyboard */; };
-		6C4E1CB61AA60E2A0099DE4C /* QueueManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E1CB31AA60E2A0099DE4C /* QueueManagerSpec.swift */; };
+		6C4E1CB61AA60E2A0099DE4C /* APIManagedQueueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E1CB31AA60E2A0099DE4C /* APIManagedQueueSpec.swift */; };
 		6C4E1CB71AA60E2A0099DE4C /* QueueViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E1CB41AA60E2A0099DE4C /* QueueViewSpec.swift */; };
 		6C4E1CB81AA60E2A0099DE4C /* ShowQueueViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E1CB51AA60E2A0099DE4C /* ShowQueueViewControllerSpec.swift */; };
 		6C60C1C61AB70E1A00E8ED5E /* MockQueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C60C1C51AB70E1A00E8ED5E /* MockQueueView.swift */; };
@@ -172,10 +172,10 @@
 		2FA28F87589F36D89DA68BC1 /* MockAddMatchInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAddMatchInteractor.swift; sourceTree = "<group>"; };
 		6C4E1CA21AA60C9E0099DE4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		6C4E1CA81AA60D560099DE4C /* QueueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueView.swift; sourceTree = "<group>"; };
-		6C4E1CA91AA60D560099DE4C /* QueueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
+		6C4E1CA91AA60D560099DE4C /* APIManagedQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManagedQueue.swift; sourceTree = "<group>"; };
 		6C4E1CAA1AA60D560099DE4C /* ShowQueueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowQueueViewController.swift; path = ../ShowQueueViewController.swift; sourceTree = "<group>"; };
 		6C4E1CAF1AA60DA60099DE4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
-		6C4E1CB31AA60E2A0099DE4C /* QueueManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManagerSpec.swift; sourceTree = "<group>"; };
+		6C4E1CB31AA60E2A0099DE4C /* APIManagedQueueSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManagedQueueSpec.swift; sourceTree = "<group>"; };
 		6C4E1CB41AA60E2A0099DE4C /* QueueViewSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueViewSpec.swift; sourceTree = "<group>"; };
 		6C4E1CB51AA60E2A0099DE4C /* ShowQueueViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowQueueViewControllerSpec.swift; path = ../ShowQueueViewControllerSpec.swift; sourceTree = "<group>"; };
 		6C60C1C51AB70E1A00E8ED5E /* MockQueueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockQueueView.swift; sourceTree = "<group>"; };
@@ -328,7 +328,7 @@
 			children = (
 				6C4E1CAA1AA60D560099DE4C /* ShowQueueViewController.swift */,
 				6C4E1CA81AA60D560099DE4C /* QueueView.swift */,
-				6C4E1CA91AA60D560099DE4C /* QueueManager.swift */,
+				6C4E1CA91AA60D560099DE4C /* APIManagedQueue.swift */,
 				FF7041421AF403A800AAACF0 /* QueueManagerProtocol.swift */,
 			);
 			name = ShowQueue;
@@ -350,7 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				6C4E1CB51AA60E2A0099DE4C /* ShowQueueViewControllerSpec.swift */,
-				6C4E1CB31AA60E2A0099DE4C /* QueueManagerSpec.swift */,
+				6C4E1CB31AA60E2A0099DE4C /* APIManagedQueueSpec.swift */,
 				6C4E1CB41AA60E2A0099DE4C /* QueueViewSpec.swift */,
 			);
 			name = ShowQueue;
@@ -631,7 +631,7 @@
 			files = (
 				6CD021F11AB377EA00E5C44D /* SlamAPI.swift in Sources */,
 				0732B88C1AAA58DD008DEF25 /* AddMatchInteractor.swift in Sources */,
-				6C4E1CAC1AA60D560099DE4C /* QueueManager.swift in Sources */,
+				6C4E1CAC1AA60D560099DE4C /* APIManagedQueue.swift in Sources */,
 				FF7041431AF403A800AAACF0 /* QueueManagerProtocol.swift in Sources */,
 				6CE7C8211AB5FCB9007698F0 /* Match.swift in Sources */,
 				6C4E1CAD1AA60D560099DE4C /* ShowQueueViewController.swift in Sources */,
@@ -661,7 +661,7 @@
 				6C6C2FC71ABCBC4D005DCC0A /* MockUITableView.swift in Sources */,
 				6C4E1CB71AA60E2A0099DE4C /* QueueViewSpec.swift in Sources */,
 				07327B311AAA51A800F27545 /* AddMatchViewControllerSpec.swift in Sources */,
-				6C4E1CB61AA60E2A0099DE4C /* QueueManagerSpec.swift in Sources */,
+				6C4E1CB61AA60E2A0099DE4C /* APIManagedQueueSpec.swift in Sources */,
 				2FA282448BF611638AAE8C26 /* MockAddMatchInteractor.swift in Sources */,
 				2FA28600E06D6B94B6F01325 /* AsynchronousHTTPClientSpec.swift in Sources */,
 			);

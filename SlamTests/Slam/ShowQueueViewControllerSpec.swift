@@ -6,10 +6,16 @@ import UIKit
 class ShowQueueViewControllerSpec: QuickSpec {
     override func spec() {
         describe("Initializing delegates") {
-            it("creates the queue") {
-                let tableView = UITableView()
-                let controller = ShowQueueViewController()
+            var tableView = UITableView()
+            var controller = ShowQueueViewController()
+
+            beforeEach {
+                tableView = UITableView()
+                controller = ShowQueueViewController()
                 controller.currentQueue = tableView
+            }
+
+            it("creates the queue") {
                 expect(controller.queue).to(beNil())
 
                 controller.initializeDelegates()
@@ -18,9 +24,6 @@ class ShowQueueViewControllerSpec: QuickSpec {
             }
 
             it("creates the queue manager with the queue") {
-                let tableView = UITableView()
-                let controller = ShowQueueViewController()
-                controller.currentQueue = tableView
                 expect(controller.queueManager).to(beNil())
 
                 controller.initializeDelegates()
@@ -31,45 +34,38 @@ class ShowQueueViewControllerSpec: QuickSpec {
         }
 
         describe("clicking the refresh queue button") {
-            it("disables the buttons") {
-                let refreshQueueButton = UIBarButtonItem()
-                let addMatchToQueueButton = UIBarButtonItem()
-                let tableView = UITableView()
-                let controller = ShowQueueViewController()
-                let manager = MockQueueManager()
+            var refreshQueueButton = UIBarButtonItem()
+            var addMatchToQueueButton = UIBarButtonItem()
+            var tableView = UITableView()
+            var controller = ShowQueueViewController()
+            var manager = MockQueueManager()
+
+            beforeEach {
+                refreshQueueButton = UIBarButtonItem()
+                addMatchToQueueButton = UIBarButtonItem()
+                tableView = UITableView()
+                controller = ShowQueueViewController()
+                manager = MockQueueManager()
                 controller.currentQueue = tableView
                 controller.queueManager = manager
                 controller.refreshQueueButton = refreshQueueButton
                 controller.addMatchToQueueButton = addMatchToQueueButton
+            }
+
+            it("disables the buttons") {
                 controller.clickRefreshQueue(controller.refreshQueueButton)
                 expect(controller.refreshQueueButton.enabled).to(beFalse())
                 expect(controller.addMatchToQueueButton.enabled).to(beFalse())
             }
 
             it("reloads the queue") {
-                let refreshQueueButton = UIBarButtonItem()
-                let addMatchToQueueButton = UIBarButtonItem()
-                let tableView = UITableView()
-                let controller = ShowQueueViewController()
-                let manager = MockQueueManager()
-                controller.currentQueue = tableView
-                controller.queueManager = manager
-                controller.refreshQueueButton = refreshQueueButton
-                controller.addMatchToQueueButton = addMatchToQueueButton
                 controller.clickRefreshQueue(refreshQueueButton)
                 expect(manager.reloadQueueCalled).to(beTrue())
             }
-        }
 
-        describe("enable buttons") {
             it("reenables the functionality of the disable buttons") {
-                let refreshQueueButton = UIBarButtonItem()
-                let addMatchToQueueButton = UIBarButtonItem()
-                let controller = ShowQueueViewController()
                 refreshQueueButton.enabled = false
                 addMatchToQueueButton.enabled = false
-                controller.refreshQueueButton = refreshQueueButton
-                controller.addMatchToQueueButton = addMatchToQueueButton
                 controller.enableButtons()
                 expect(refreshQueueButton.enabled).to(beTrue())
                 expect(addMatchToQueueButton.enabled).to(beTrue())
