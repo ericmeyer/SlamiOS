@@ -1,6 +1,6 @@
 notifications:
   email: false
-osx_image: xcode611
+osx_image: xcode63
 language: objective-c
 script:
 - xctool -project Slam.xcodeproj -scheme Slam clean build -sdk iphonesimulator8.3
