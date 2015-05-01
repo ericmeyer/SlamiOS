@@ -19,9 +19,11 @@
 		07A937E21AD0E3F0001F4F96 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 07CBE7FB1AA1065500228BE9 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		07A937E31AD0E3FB001F4F96 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 07CBE7E41AA1064F00228BE9 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		07CBE7BD1AA104FE00228BE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CBE7BC1AA104FE00228BE9 /* AppDelegate.swift */; };
+		2FA2802F86513A15296F3055 /* PostBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA28CFC86B8A9C1D807D730 /* PostBody.swift */; };
 		2FA280C3C24151CE29A63B46 /* DefaultAddMatchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA28CAEE60C8C5936B01266 /* DefaultAddMatchInteractor.swift */; };
 		2FA282448BF611638AAE8C26 /* MockAddMatchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA28F87589F36D89DA68BC1 /* MockAddMatchInteractor.swift */; };
 		2FA28600E06D6B94B6F01325 /* AsynchronousHTTPClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA284073CE57B2309329F65 /* AsynchronousHTTPClientSpec.swift */; };
+		2FA289ABEDF006F8432BD429 /* PostBodyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA28123A7B9D037288C2B75 /* PostBodyTest.swift */; };
 		6C4E1CA51AA60C9E0099DE4C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C4E1CA11AA60C9E0099DE4C /* LaunchScreen.xib */; };
 		6C4E1CAB1AA60D560099DE4C /* QueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E1CA81AA60D560099DE4C /* QueueView.swift */; };
 		6C4E1CAC1AA60D560099DE4C /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4E1CA91AA60D560099DE4C /* QueueManager.swift */; };
@@ -163,9 +165,11 @@
 		07CBE7D11AA104FE00228BE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07CBE7DC1AA1064F00228BE9 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = Vendor/Nimble/Nimble.xcodeproj; sourceTree = SOURCE_ROOT; };
 		07CBE7EB1AA1065500228BE9 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = Vendor/Quick/Quick.xcodeproj; sourceTree = SOURCE_ROOT; };
+		2FA28123A7B9D037288C2B75 /* PostBodyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostBodyTest.swift; sourceTree = "<group>"; };
 		2FA284073CE57B2309329F65 /* AsynchronousHTTPClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousHTTPClientSpec.swift; sourceTree = "<group>"; };
 		2FA28615D2BA509BD39EAA86 /* DefaultAddMatchInteractorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAddMatchInteractorSpec.swift; sourceTree = "<group>"; };
 		2FA28CAEE60C8C5936B01266 /* DefaultAddMatchInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAddMatchInteractor.swift; sourceTree = "<group>"; };
+		2FA28CFC86B8A9C1D807D730 /* PostBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostBody.swift; sourceTree = "<group>"; };
 		2FA28E2DABA82D66751AF956 /* AddMatchInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMatchInteractor.swift; sourceTree = "<group>"; };
 		2FA28F87589F36D89DA68BC1 /* MockAddMatchInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAddMatchInteractor.swift; sourceTree = "<group>"; };
 		6C4E1CA21AA60C9E0099DE4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -225,6 +229,25 @@
 			name = AddMatchToQueue;
 			sourceTree = "<group>";
 		};
+		07BF01AD1AFCF19800FF4BC0 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				0743778D1ACF517100A63678 /* AsynchronousHTTPClient.swift */,
+				0743777E1ACF3BC100A63678 /* HTTPClient.swift */,
+				2FA28CFC86B8A9C1D807D730 /* PostBody.swift */,
+			);
+			name = HTTP;
+			sourceTree = "<group>";
+		};
+		07BF01B61AFCF1B600FF4BC0 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				2FA284073CE57B2309329F65 /* AsynchronousHTTPClientSpec.swift */,
+				2FA28123A7B9D037288C2B75 /* PostBodyTest.swift */,
+			);
+			name = HTTP;
+			sourceTree = "<group>";
+		};
 		07CBE7AE1AA104FE00228BE9 = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +269,7 @@
 		07CBE7B91AA104FE00228BE9 /* Slam */ = {
 			isa = PBXGroup;
 			children = (
+				07BF01AD1AFCF19800FF4BC0 /* HTTP */,
 				6CE7C81F1AB5FCAE007698F0 /* Matches */,
 				6CD021EF1AB377DC00E5C44D /* API */,
 				077D553D1AAFA8DD0036A7DC /* AddMatchToQueue */,
@@ -333,6 +357,7 @@
 		6C4E1CB11AA60E2A0099DE4C /* Slam */ = {
 			isa = PBXGroup;
 			children = (
+				07BF01B61AFCF1B600FF4BC0 /* HTTP */,
 				6CE7C8261AB6099C007698F0 /* Matches */,
 				6CD021F21AB3798900E5C44D /* API */,
 				077D55321AAFA8BF0036A7DC /* AddMatchToQueue */,
@@ -407,8 +432,6 @@
 			isa = PBXGroup;
 			children = (
 				6CD021F01AB377EA00E5C44D /* SlamAPI.swift */,
-				0743777E1ACF3BC100A63678 /* HTTPClient.swift */,
-				0743778D1ACF517100A63678 /* AsynchronousHTTPClient.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -417,7 +440,6 @@
 			isa = PBXGroup;
 			children = (
 				6CD021F31AB379A100E5C44D /* SlamAPISpec.swift */,
-				2FA284073CE57B2309329F65 /* AsynchronousHTTPClientSpec.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -635,6 +657,7 @@
 				073F06121AB308780098654F /* AddMatchView.swift in Sources */,
 				0743778E1ACF517100A63678 /* AsynchronousHTTPClient.swift in Sources */,
 				2FA280C3C24151CE29A63B46 /* DefaultAddMatchInteractor.swift in Sources */,
+				2FA2802F86513A15296F3055 /* PostBody.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +679,7 @@
 				6C4E1CB61AA60E2A0099DE4C /* QueueManagerSpec.swift in Sources */,
 				2FA282448BF611638AAE8C26 /* MockAddMatchInteractor.swift in Sources */,
 				2FA28600E06D6B94B6F01325 /* AsynchronousHTTPClientSpec.swift in Sources */,
+				2FA289ABEDF006F8432BD429 /* PostBodyTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
