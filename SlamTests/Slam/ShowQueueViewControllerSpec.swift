@@ -53,13 +53,13 @@ class ShowQueueViewControllerSpec: QuickSpec {
             }
 
             it("disables the buttons") {
-                controller.clickRefreshQueue(controller.refreshQueueButton)
+                controller.refreshQueue()
                 expect(controller.refreshQueueButton.enabled).to(beFalse())
                 expect(controller.addMatchToQueueButton.enabled).to(beFalse())
             }
 
             it("reloads the queue") {
-                controller.clickRefreshQueue(refreshQueueButton)
+                controller.refreshQueue()
                 expect(manager.reloadQueueCalled).to(beTrue())
             }
 

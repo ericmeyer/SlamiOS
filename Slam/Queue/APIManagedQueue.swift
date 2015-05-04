@@ -9,16 +9,10 @@ public class APIManagedQueue: QueueManager {
         self.queueView = queueView
     }
 
-    public func loadQueue() {
+    public func loadQueue(onSuccess: () -> Void) {
         api.getQueue({(matches: [Match]) in
             self.queueView.showMatches(matches)
-        })
-    }
-
-    public func reloadQueue(callback: () -> Void) {
-        api.getQueue({(matches: [Match]) in
-            self.queueView.showMatches(matches)
-            callback()
+            onSuccess()
         })
     }
 }

@@ -23,14 +23,9 @@ public class ShowQueueViewController: UIViewController {
         currentQueue!.dataSource = queue
     }
 
-    func refreshQueue() {
-        queueManager!.loadQueue()
-    }
-
-
-    @IBAction public func clickRefreshQueue(sender: AnyObject) {
+    @IBAction public func refreshQueue() {
         disableButtons()
-        queueManager!.reloadQueue(enableButtons)
+        queueManager!.loadQueue(enableButtons)
     }
 
     public func enableButtons() {

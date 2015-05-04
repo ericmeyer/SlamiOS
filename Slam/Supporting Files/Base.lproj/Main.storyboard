@@ -23,7 +23,7 @@
                                     <navigationItem title="The Queue" id="hiu-f6-IJ6">
                                         <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="WK8-TP-Cdp">
                                             <connections>
-                                                <action selector="clickRefreshQueue:" destination="BYZ-38-t0r" id="7Be-qe-BAf"/>
+                                                <action selector="refreshQueue" destination="BYZ-38-t0r" id="kYm-Na-DCY"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pMp-NY-JSu">

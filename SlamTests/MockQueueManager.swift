@@ -10,11 +10,7 @@ class MockQueueManager: QueueManager {
         queueView = QueueView(display: UITableView())
     }
 
-    func loadQueue() {
-        loadQueueCalled = true
-    }
-
-    func reloadQueue(callback: () -> Void) {
+    func loadQueue(callback: () -> Void) {
         reloadQueueCalled = true
     }
 }
