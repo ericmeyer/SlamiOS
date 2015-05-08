@@ -1,6 +1,6 @@
 import Foundation
 
-public class QueueManager {
+public class APIManagedQueue: QueueManager {
     public let queueView: QueueView
     public var api: SlamAPI
 
@@ -9,9 +9,10 @@ public class QueueManager {
         self.queueView = queueView
     }
 
-    public func loadQueue() {
+    public func loadQueue(onSuccess: () -> Void) {
         api.getQueue({(matches: [Match]) in
             self.queueView.showMatches(matches)
+            onSuccess()
         })
     }
 }

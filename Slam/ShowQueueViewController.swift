@@ -3,6 +3,9 @@ import UIKit
 public class ShowQueueViewController: UIViewController {
     @IBOutlet weak public var currentQueue: UITableView!
 
+    @IBOutlet public weak var refreshQueueButton: UIBarButtonItem!
+    @IBOutlet public weak var addMatchToQueueButton: UIBarButtonItem!
+
     public var queueManager: QueueManager?
     public var queue: QueueView?
 
@@ -16,12 +19,23 @@ public class ShowQueueViewController: UIViewController {
 
     public func initializeDelegates() {
         queue = QueueView(display: currentQueue)
-        queueManager = QueueManager(queueView: queue!)
+        queueManager = APIManagedQueue(queueView: queue!)
         currentQueue!.dataSource = queue
     }
 
-    func refreshQueue() {
-        queueManager!.loadQueue()
+    @IBAction public func refreshQueue() {
+        disableButtons()
+        queueManager!.loadQueue(enableButtons)
+    }
+
+    public func enableButtons() {
+        refreshQueueButton.enabled = true
+        addMatchToQueueButton.enabled = true
+    }
+
+    public func disableButtons() {
+        refreshQueueButton.enabled = false
+        addMatchToQueueButton.enabled = false
     }
 
     @IBAction func cancelAddMatch(segue:UIStoryboardSegue) {
@@ -37,5 +51,4 @@ public class ShowQueueViewController: UIViewController {
             return false
         }
     }
-
 }
