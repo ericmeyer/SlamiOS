@@ -5,12 +5,34 @@ import Slam
 class DefaultAddMatchInteractorSpec: QuickSpec {
 
     override func spec() {
+        var view = MockAddMatchView()
+        var api = MockSlamAPI(httpClient: MockHTTPClient())
+        var interactor = DefaultAddMatchInteractor(
+            view: view,
+            api: api
+        )
+
+        beforeEach() {
+            view = MockAddMatchView()
+            api = MockSlamAPI(httpClient: MockHTTPClient())
+            interactor = DefaultAddMatchInteractor(
+                view: view,
+                api: api
+            )
+        }
+
         describe("Adding a match to the queue") {
-            it("lets the view know that a match was added") {
-                let view = MockAddMatchView()
-                let interactor = DefaultAddMatchInteractor(
-                    view: view
+            it("defers to the api to add a match") {
+                interactor.attemptAdd(
+                    playerOne: "Eric",
+                    playerTwo: "Taka"
                 )
+
+                expect(api.wasMatchAdded).to(beTrue())
+            }
+
+            it("lets the view know that a match was added") {
+                api.addMatchFailed = false
 
                 interactor.attemptAdd(
                     playerOne: "Eric",
@@ -19,21 +41,20 @@ class DefaultAddMatchInteractorSpec: QuickSpec {
 
                 expect(view.wasToldMatchAdded).to(beTrue())
             }
+
+            it("does not let view know the match was added when adding a match fails"){
+                api.addMatchFailed = true
+
+                interactor.attemptAdd(
+                    playerOne: "Eric",
+                    playerTwo: "Taka"
+                )
+
+                expect(view.wasToldMatchAdded).to(beFalse())
+            }
         }
 
         describe("Validating the user input") {
-            var view = MockAddMatchView()
-            var interactor = DefaultAddMatchInteractor(
-                view: view
-            )
-
-            beforeEach() {
-                view = MockAddMatchView()
-                interactor = DefaultAddMatchInteractor(
-                    view: view
-                )
-            }
-
             it("lets the view know that the input is valid") {
                 interactor.validateInput(
                     playerOne: "Eric",
