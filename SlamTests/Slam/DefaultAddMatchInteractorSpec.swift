@@ -32,7 +32,7 @@ class DefaultAddMatchInteractorSpec: QuickSpec {
             }
 
             it("lets the view know that a match was added") {
-                api.addMatchFailed = false
+                api.addMatchSuccessful = true
 
                 interactor.attemptAdd(
                     playerOne: "Eric",
@@ -43,7 +43,7 @@ class DefaultAddMatchInteractorSpec: QuickSpec {
             }
 
             it("does not let view know the match was added when adding a match fails"){
-                api.addMatchFailed = true
+                api.addMatchSuccessful = false
 
                 interactor.attemptAdd(
                     playerOne: "Eric",

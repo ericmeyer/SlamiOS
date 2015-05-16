@@ -6,7 +6,7 @@ class MockSlamAPI: SlamAPI {
     var receivedGetMatchAtIndex = false
     var receivedGetQueue = false
     var wasMatchAdded = false
-    var addMatchFailed = false
+    var addMatchSuccessful = true
 
     override func getQueue(callback: ([Match]) -> Void) {
         receivedGetQueue = true
@@ -14,8 +14,8 @@ class MockSlamAPI: SlamAPI {
     }
 
     override func addMatch(playerOne: String, playerTwo: String, onSuccess: () -> Void) {
-        if !addMatchFailed {
-            wasMatchAdded = true
+        wasMatchAdded = true
+        if addMatchSuccessful {
             onSuccess()
         }
     }
