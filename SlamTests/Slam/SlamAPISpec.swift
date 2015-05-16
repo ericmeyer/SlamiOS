@@ -35,6 +35,41 @@ class SlamAPISpec: QuickSpec {
 
         describe("SlamAPI") {
 
+            describe("Adding a new match to the queue") {
+                it("makes an HTTP request") {
+                    httpClient.setResponse(self.toJSON([]))
+
+                    slamApi.addMatch("Taka", playerTwo: "Emmanuel", onSuccess: {() -> Void in})
+
+                    expect(httpClient.wasRequestMade).to(beTrue())
+                    let expectedURL = NSURL(string: slamApi.addMatchURL)
+                    expect(httpClient.lastRequest!.URL).to(equal(expectedURL))
+                    expect(httpClient.lastRequest!.HTTPMethod).to(equal("POST"))
+                }
+
+                it("includes the player params in the body") {
+                    httpClient.setResponse(self.toJSON([]))
+
+                    slamApi.addMatch("Taka", playerTwo: "Emmanuel", onSuccess: {() -> Void in})
+
+                    expect(httpClient.lastRequestBody).notTo(beNil())
+                    expect(httpClient.lastRequestBody).to(match("playerOne=Taka"))
+                    expect(httpClient.lastRequestBody).to(match("playerTwo=Emmanuel"))
+                }
+
+                it("Calls the callback on success") {
+                    var callbackCalled = false
+                    let onSuccess = { () -> Void in
+                        callbackCalled = true
+                    }
+                    httpClient.setResponse(self.toJSON([]))
+
+                    slamApi.addMatch("Taka", playerTwo: "Emmanuel", onSuccess: onSuccess)
+
+                    expect(callbackCalled).to(beTrue())
+                }
+            }
+
             describe("Fetching the current queue") {
                 it("makes an HTTP request") {
                     httpClient.setResponse(self.toJSON([]))

@@ -3,12 +3,20 @@ import Foundation
 public class DefaultAddMatchInteractor : AddMatchInteractor {
 
     let view : AddMatchView
-    public init(view: AddMatchView) {
+    let api : SlamAPI
+
+    public init(view: AddMatchView, api: SlamAPI) {
         self.view = view
+        self.api = api
     }
 
     public func attemptAdd(#playerOne: String, playerTwo: String) {
-        view.matchWasAdded()
+        api.addMatch(playerOne,
+            playerTwo: playerTwo,
+            onSuccess: {() -> Void in
+                self.view.matchWasAdded()
+        })
+
     }
 
     public func validateInput(#playerOne: String, playerTwo: String) {

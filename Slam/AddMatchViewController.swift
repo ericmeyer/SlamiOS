@@ -11,7 +11,8 @@ public class AddMatchViewController: UIViewController, AddMatchView {
     override public func viewDidLoad() {
         super.viewDidLoad()
         interactor = DefaultAddMatchInteractor(
-            view: self
+            view: self,
+            api: SlamAPI(httpClient: AsynchronousHTTPClient())
         )
         addMatchButton.enabled = false
     }

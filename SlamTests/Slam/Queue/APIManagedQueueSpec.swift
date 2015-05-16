@@ -37,7 +37,7 @@ class APIManagedQueueSpec: QuickSpec {
             }
 
             describe("Reloading the queue") {
-                                it("defers to the API to fetch the latest queue data") {
+                it("defers to the API to fetch the latest queue data") {
                     queueManager!.loadQueue(callback)
                     expect(mockAPI!.receivedGetQueue).to(beTrue())
                 }
