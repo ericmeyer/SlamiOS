@@ -2,7 +2,7 @@ import Quick
 import Nimble
 import Slam
 
-class PostBodyTest: QuickSpec {
+class PostBodySpec: QuickSpec {
 
     func asPostString(params: [String:String]) -> String {
         let postBody = PostBody(params: params)
