@@ -33,6 +33,8 @@ public class AddMatchViewController: UIViewController, AddMatchView {
 
     public func matchWasAdded() {
         NSLog("Refresh/show the updated queue")
+        self.dismissViewControllerAnimated(true, completion: nil)
+        self.removeFromParentViewController()
     }
 
     public func inputIsValid() {

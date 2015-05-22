@@ -12,6 +12,9 @@ public class ShowQueueViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         initializeDelegates()
+    }
+
+    override public func viewWillAppear(animated: Bool) {
         if (!self.isRunningTests()) {
             refreshQueue()
         }

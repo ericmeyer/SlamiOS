@@ -98,5 +98,21 @@ class AddMatchViewControllerSpec: QuickSpec {
                 expect(controller.addMatchButton.enabled).to(beTrue())
             }
         }
+
+        describe("After a match was added") {
+            it("dismisses the controller") {
+                let originalController = UIViewController()
+                let navController = UINavigationController(
+                    rootViewController: originalController
+                )
+
+                let controller = AddMatchViewController()
+                navController.pushViewController(controller, animated: false)
+
+                expect(navController.visibleViewController).to(equal(controller))
+                controller.matchWasAdded()
+                expect(navController.visibleViewController).to(equal(originalController))
+            }
+        }
     }
 }
