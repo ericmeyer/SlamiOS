@@ -88,6 +88,7 @@ class SlamAPISpec: QuickSpec {
                     }
 
                     httpClient.setResponse(self.toJSON([[
+                        "id": "id",
                         "playerOne": "Taka",
                         "playerTwo": "Eric"
                     ]]))
@@ -106,9 +107,11 @@ class SlamAPISpec: QuickSpec {
                     }
 
                     httpClient.setResponse(self.toJSON([[
+                        "id": "1",
                         "playerOne": "A",
                         "playerTwo": "B"
                     ], [
+                        "id": "2",
                         "playerOne": "C",
                         "playerTwo": "D"
                     ]]))

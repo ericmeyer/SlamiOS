@@ -12,6 +12,7 @@ class QueueViewSpec: QuickSpec {
         describe("QueueView") {
             var display: MockUITableView?
             var queueView: QueueView?
+            let matchData = ["id":"id", "playerOne":"One","playerTwo":"Two"]
 
             beforeEach {
                 display = MockUITableView()
@@ -20,21 +21,21 @@ class QueueViewSpec: QuickSpec {
 
             describe("The number of rows") {
                 it("is equal to the number of matches") {
-                    queueView!.matches = [Match(matchData: ["playerOne":"One","playerTwo":"two"])]
+                    queueView!.matches = [Match(matchData: matchData)]
                     expect(queueView!.tableView(display!, numberOfRowsInSection: 0)).to(equal((1)))
                 }
             }
 
             describe("Building a table view cell") {
                 it("includes player one in the cell's label") {
-                    let match = Match(matchData: ["playerOne":"One","playerTwo":"Two"])
+                    let match = Match(matchData: matchData)
                     queueView!.showMatches([match])
                     let cell = queueView!.tableView(display!, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
                     expect(cell.textLabel!.text).to(contain("One"))
                 }
 
                 it("includes player two in the cell's label") {
-                    let match = Match(matchData: ["playerOne":"One","playerTwo":"Two"])
+                    let match = Match(matchData: matchData)
                     queueView!.showMatches([match])
                     let cell = queueView!.tableView(display!, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
                     expect(cell.textLabel!.text).to(contain("Two"))
@@ -43,7 +44,7 @@ class QueueViewSpec: QuickSpec {
 
             context("Showing a new list of matches") {
                 it("sets the matches") {
-                    let match = Match(matchData: ["playerOne":"One","playerTwo":"Two"])
+                    let match = Match(matchData: matchData)
 
                     queueView!.showMatches([match])
 
