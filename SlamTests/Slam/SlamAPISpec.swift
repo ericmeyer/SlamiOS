@@ -122,6 +122,26 @@ class SlamAPISpec: QuickSpec {
                 }
             }
 
+            describe("removing a match from the queue") {
+                it("makes an http request") {
+                    httpClient.setResponse(self.toJSON([]))
+
+                    slamApi.removeMatchFromQueue("23", onSuccess: {() -> Void in })
+
+                    expect(httpClient.wasRequestMade).to(beTrue())
+                    expect(httpClient.lastRequest!.HTTPMethod).to(equal("DELETE"))
+                }
+
+                it("configures the url properly") {
+                    httpClient.setResponse(self.toJSON([]))
+
+                    slamApi.removeMatchFromQueue("23", onSuccess: {() -> Void in })
+
+                    let urlString = "\(slamApi.removeMatchFromQueueURL)?id=23"
+                    let expectedURL = NSURL(string: urlString)
+                    expect(httpClient.lastRequest!.URL).to(equal(expectedURL))
+                }
+            }
         }
     }
 }

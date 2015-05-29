@@ -3,6 +3,7 @@ import Foundation
 public class SlamAPI {
     public let getCurrentQueueURL = "http://slamapi.herokuapp.com/matches"
     public let addMatchURL = "http://slamapi.herokuapp.com/matches"
+    public let removeMatchFromQueueURL = "http://slamapi.herokuapp.com/matches"
     let httpClient: HTTPClient
 
     public init(httpClient: HTTPClient) {
@@ -37,6 +38,18 @@ public class SlamAPI {
                 Match(matchData: matchData as! [String : String])
             }))
         })
+    }
+
+    public func removeMatchFromQueue(id: String, onSuccess: () -> Void) {
+        var request = NSMutableURLRequest(
+            URL: NSURL(string: "\(removeMatchFromQueueURL)?id=\(id)")!
+        )
+
+        request.HTTPMethod = "DELETE"
+        httpClient.makeRequest(request, onSuccess: {(data: NSData) in
+            onSuccess()
+        })
+
     }
 
     private func deserializeJSON(data: NSData) -> AnyObject? {
