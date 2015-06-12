@@ -24,4 +24,10 @@ public class QueueView: NSObject, UITableViewDataSource {
         return cell
     }
 
+    public func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            matches.removeAtIndex(indexPath.row)
+            self.display.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
 }

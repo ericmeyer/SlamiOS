@@ -40,6 +40,26 @@ class QueueViewSpec: QuickSpec {
                     let cell = queueView!.tableView(display!, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
                     expect(cell.textLabel!.text).to(contain("Two"))
                 }
+
+                it("calls delete row on display and removes match") {
+                    let match = Match(matchData: matchData)
+                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                    queueView!.showMatches([match])
+                    queueView!.tableView(display!, commitEditingStyle: UITableViewCellEditingStyle.Delete, forRowAtIndexPath: indexPath)
+
+                    expect(display!.wasRowDeleted).to(beTrue())
+                    expect(queueView!.matches).to(beEmpty())
+                }
+
+                it("should not delete match if editingStyle is not delete and not remove a match") {
+                    let match = Match(matchData: matchData)
+                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                    queueView!.showMatches([match])
+                    queueView!.tableView(display!, commitEditingStyle: UITableViewCellEditingStyle.Insert, forRowAtIndexPath: indexPath)
+
+                    expect(display!.wasRowDeleted).to(beFalse())
+                    expect(queueView!.matches).toNot(beEmpty())
+                }
             }
 
             context("Showing a new list of matches") {
