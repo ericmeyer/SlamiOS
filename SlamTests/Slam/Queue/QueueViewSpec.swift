@@ -40,7 +40,9 @@ class QueueViewSpec: QuickSpec {
                     let cell = queueView!.tableView(display!, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
                     expect(cell.textLabel!.text).to(contain("Two"))
                 }
+            }
 
+            describe("removing match by slide") {
                 it("calls delete row on display and removes match") {
                     let match = Match(matchData: matchData)
                     let indexPath = NSIndexPath(forRow: 0, inSection: 0)
@@ -60,6 +62,38 @@ class QueueViewSpec: QuickSpec {
                     expect(display!.wasRowDeleted).to(beFalse())
                     expect(queueView!.matches).toNot(beEmpty())
                 }
+                
+                it("should invoke onDelete") {
+                    let match = Match(matchData: matchData)
+                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                    var matchId = "0"
+                    var onDelete = {(id) in
+                        matchId = id
+                    }
+                    display = MockUITableView()
+                    queueView = QueueView(display: display!, onDelete: onDelete)
+                    queueView!.showMatches([match])
+
+                    queueView!.tableView(display!, commitEditingStyle: UITableViewCellEditingStyle.Delete, forRowAtIndexPath: indexPath)
+
+                    expect(matchId).to(equal(match.id))
+                }
+
+                it("should not invoke onDelete if editingStyle is not delete") {
+                    let match = Match(matchData: matchData)
+                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                    var matchDeleted = "0"
+                    var onDelete = {(id) in
+                        matchDeleted = id
+                    }
+                    display = MockUITableView()
+                    queueView = QueueView(display: display!, onDelete: onDelete)
+                    queueView!.showMatches([match])
+
+                    queueView!.tableView(display!, commitEditingStyle: UITableViewCellEditingStyle.Insert, forRowAtIndexPath: indexPath)
+
+                    expect(matchDeleted).to(equal("0"))
+                }
             }
 
             context("Showing a new list of matches") {
@@ -74,6 +108,14 @@ class QueueViewSpec: QuickSpec {
 
                 it("reloads the display") {
                     queueView!.showMatches([])
+
+                    expect(display!.receivedReloadData).to(beTrue())
+                }
+            }
+
+            context("after removing a match") {
+                it("reloads the display") {
+                    queueView!.removedMatch()
 
                     expect(display!.receivedReloadData).to(beTrue())
                 }

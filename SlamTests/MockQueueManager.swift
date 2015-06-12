@@ -1,16 +1,25 @@
 import Slam
 import UIKit
 
-class MockQueueManager: QueueManager {
+public class MockQueueManager: QueueManager {
     var loadQueueCalled = false
     var reloadQueueCalled = false
-    var queueView: QueueView
+    var removeMatchWasCalled = false
+    public var queueView: QueueView
 
     init() {
         queueView = QueueView(display: UITableView())
     }
 
-    func loadQueue(callback: () -> Void) {
+    public func loadQueue(callback: () -> Void) {
         reloadQueueCalled = true
+    }
+
+    public func removeMatch(matchId: String) {
+        removeMatchWasCalled = true
+    }
+
+    public func setQueueView(queueView: QueueView) {
+        self.queueView = queueView
     }
 }

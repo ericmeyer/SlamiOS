@@ -7,7 +7,7 @@ public class ShowQueueViewController: UIViewController {
     @IBOutlet public weak var addMatchToQueueButton: UIBarButtonItem!
 
     public var queueManager: QueueManager?
-    public var queue: QueueView?
+    public var queueView: QueueView?
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +21,15 @@ public class ShowQueueViewController: UIViewController {
     }
 
     public func initializeDelegates() {
-        queue = QueueView(display: currentQueue)
-        queueManager = APIManagedQueue(queueView: queue!)
-        currentQueue!.dataSource = queue
+        queueView = QueueView(display: currentQueue, onDelete: { (matchId) in
+            self.queueManager!.removeMatch(matchId)
+        })
+        if queueManager == nil {
+            queueManager = APIManagedQueue(
+                queueView: queueView!
+            )
+        }
+        currentQueue!.dataSource = queueView
     }
 
     @IBAction public func refreshQueue() {

@@ -34,17 +34,25 @@ class APIManagedQueueSpec: QuickSpec {
 
                     expect(queueView!.wasShowMatchesCalled).to(beTrue())
                 }
-            }
-
-            describe("Reloading the queue") {
-                it("defers to the API to fetch the latest queue data") {
-                    queueManager!.loadQueue(callback)
-                    expect(mockAPI!.receivedGetQueue).to(beTrue())
-                }
 
                 it("executes the callback after the queue is updated") {
                     queueManager!.loadQueue(callback)
                     expect(callbackCalled).to(beTrue())
+                }
+            }
+
+            describe("Removing a match from the queue") {
+                it("defers to the API to remove a match") {
+                    queueManager!.removeMatch("1")
+
+                    expect(mockAPI!.removeMatchWasCalled).to(beTrue())
+                    expect(mockAPI!.removedMatchID).to(equal("1"))
+                }
+
+                it("calls match removed on the queue view on success") {
+                    queueManager!.removeMatch("1")
+
+                    expect(queueView!.wasRemovedMatchCalled).to(beTrue())
                 }
             }
         }
