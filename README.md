@@ -3,11 +3,12 @@
 [![Build Status](https://travis-ci.org/ericmeyer/SlamiOS.svg?branch=master)](https://travis-ci.org/ericmeyer/SlamiOS)
 
 #### Contributing
-1. clone the repsoitory
-2. clone the submodules
+
+1. Clone the repsoitory
+2. Clone the submodules
 
         git submodule update --init --recursive
 
-3. write code
+3. Write code
 
-        open Slam.xcodeproj
+        open Slam.xcworkspace
