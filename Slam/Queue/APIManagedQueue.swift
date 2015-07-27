@@ -17,10 +17,8 @@ public class APIManagedQueue: QueueManager {
     }
 
     public func removeMatch(matchID: String) {
-        api.removeMatchFromQueue(matchID, onSuccess: { () -> Void in self.queueView.removedMatch()})
-    }
-
-    public func setQueueView(queueView: QueueView) {
-        self.queueView = queueView
+        api.removeMatchFromQueue(matchID, onSuccess: {
+            self.queueView.removedMatch()
+        })
     }
 }

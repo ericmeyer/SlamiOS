@@ -5,5 +5,4 @@ public protocol QueueManager {
 
     func removeMatch(matchId: String)
 
-    func setQueueView(queueView: QueueView)
 }

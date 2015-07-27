@@ -12,7 +12,7 @@ class QueueViewSpec: QuickSpec {
         describe("QueueView") {
             var display: MockUITableView?
             var queueView: QueueView?
-            let matchData = ["id":"id", "playerOne":"One","playerTwo":"Two"]
+            let matchData = ["id": "id", "playerOne": "One", "playerTwo": "Two"]
 
             beforeEach {
                 display = MockUITableView()
@@ -42,58 +42,64 @@ class QueueViewSpec: QuickSpec {
                 }
             }
 
-            describe("removing match by slide") {
-                it("calls delete row on display and removes match") {
-                    let match = Match(matchData: matchData)
-                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-                    queueView!.showMatches([match])
-                    queueView!.tableView(display!, commitEditingStyle: UITableViewCellEditingStyle.Delete, forRowAtIndexPath: indexPath)
+            describe("Editing a match") {
 
-                    expect(display!.wasRowDeleted).to(beTrue())
-                    expect(queueView!.matches).to(beEmpty())
-                }
+                context("When editing style is delete") {
+                    it("removes the match from the view") {
+                        let match = Match(matchData: matchData)
+                        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                        queueView!.showMatches([match])
+                        queueView!.tableView(display!, commitEditingStyle: .Delete, forRowAtIndexPath: indexPath)
 
-                it("should not delete match if editingStyle is not delete and not remove a match") {
-                    let match = Match(matchData: matchData)
-                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-                    queueView!.showMatches([match])
-                    queueView!.tableView(display!, commitEditingStyle: UITableViewCellEditingStyle.Insert, forRowAtIndexPath: indexPath)
-
-                    expect(display!.wasRowDeleted).to(beFalse())
-                    expect(queueView!.matches).toNot(beEmpty())
-                }
-                
-                it("should invoke onDelete") {
-                    let match = Match(matchData: matchData)
-                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-                    var matchId = "0"
-                    var onDelete = {(id) in
-                        matchId = id
+                        expect(display!.wasRowDeleted).to(beTrue())
+                        expect(queueView!.matches).to(beEmpty())
                     }
-                    display = MockUITableView()
-                    queueView = QueueView(display: display!, onDelete: onDelete)
-                    queueView!.showMatches([match])
 
-                    queueView!.tableView(display!, commitEditingStyle: UITableViewCellEditingStyle.Delete, forRowAtIndexPath: indexPath)
+                    it("invokes the callback") {
+                        let match = Match(matchData: matchData)
+                        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                        var matchId = "0"
+                        var onDelete = {(id) in
+                            matchId = id
+                        }
+                        display = MockUITableView()
+                        queueView = QueueView(display: display!, onDelete: onDelete)
+                        queueView!.showMatches([match])
 
-                    expect(matchId).to(equal(match.id))
-                }
+                        queueView!.tableView(display!, commitEditingStyle: .Delete, forRowAtIndexPath: indexPath)
 
-                it("should not invoke onDelete if editingStyle is not delete") {
-                    let match = Match(matchData: matchData)
-                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-                    var matchDeleted = "0"
-                    var onDelete = {(id) in
-                        matchDeleted = id
+                        expect(matchId).to(equal(match.id))
                     }
-                    display = MockUITableView()
-                    queueView = QueueView(display: display!, onDelete: onDelete)
-                    queueView!.showMatches([match])
-
-                    queueView!.tableView(display!, commitEditingStyle: UITableViewCellEditingStyle.Insert, forRowAtIndexPath: indexPath)
-
-                    expect(matchDeleted).to(equal("0"))
                 }
+
+                context("When editing style is not delete") {
+                    it("does not invoke the callback") {
+                        let match = Match(matchData: matchData)
+                        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                        var matchDeleted = "0"
+                        var onDelete = {
+                            id in matchDeleted = id
+                        }
+                        display = MockUITableView()
+                        queueView = QueueView(display: display!, onDelete: onDelete)
+                        queueView!.showMatches([match])
+
+                        queueView!.tableView(display!, commitEditingStyle: .Insert, forRowAtIndexPath: indexPath)
+
+                        expect(matchDeleted).to(equal("0"))
+                    }
+
+                    it("does not remove the match from the view") {
+                        let match = Match(matchData: matchData)
+                        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                        queueView!.showMatches([match])
+                        queueView!.tableView(display!, commitEditingStyle: .Insert, forRowAtIndexPath: indexPath)
+
+                        expect(display!.wasRowDeleted).to(beFalse())
+                        expect(queueView!.matches).toNot(beEmpty())
+                    }
+                }
+
             }
 
             context("Showing a new list of matches") {

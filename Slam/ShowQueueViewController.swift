@@ -21,9 +21,7 @@ public class ShowQueueViewController: UIViewController {
     }
 
     public func initializeDelegates() {
-        queueView = QueueView(display: currentQueue, onDelete: { (matchId) in
-            self.queueManager!.removeMatch(matchId)
-        })
+        queueView = QueueView(display: currentQueue, onDelete: removeMatch)
         if queueManager == nil {
             queueManager = APIManagedQueue(
                 queueView: queueView!
@@ -47,8 +45,12 @@ public class ShowQueueViewController: UIViewController {
         addMatchToQueueButton.enabled = false
     }
 
-    @IBAction func cancelAddMatch(segue:UIStoryboardSegue) {
+    @IBAction func cancelAddMatch(segue: UIStoryboardSegue) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    private func removeMatch(matchId: String) {
+        self.queueManager!.removeMatch(matchId)
     }
 
     private func isRunningTests() -> Bool {

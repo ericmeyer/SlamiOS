@@ -2,11 +2,12 @@ import UIKit
 
 public class QueueView: NSObject, UITableViewDataSource {
     let display: UITableView
-    public var onDelete: (String) -> Void = { arg in }
+    public let onDelete: (String) -> Void
     public var matches: [Match] = []
 
     public init(display: UITableView) {
         self.display = display
+        self.onDelete = { _ in }
     }
 
     public init(display: UITableView, onDelete: (String) -> Void) {
@@ -24,19 +25,23 @@ public class QueueView: NSObject, UITableViewDataSource {
     }
 
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let match = matches[indexPath.row]
+        let match = getMatch(indexPath)
         let cell = UITableViewCell()
         cell.textLabel?.text = "\(match.playerOne) vs. \(match.playerTwo)"
         return cell
     }
 
     public func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            var match = matches[indexPath.row]
+        if editingStyle == .Delete {
+            let match = getMatch(indexPath)
             matches.removeAtIndex(indexPath.row)
-            self.display.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            self.display.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             onDelete(match.id)
         }
+    }
+
+    private func getMatch(indexPath: NSIndexPath) -> Match {
+        return matches[indexPath.row]
     }
 
     public func removedMatch() {
