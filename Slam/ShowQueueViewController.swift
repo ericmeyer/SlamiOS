@@ -7,7 +7,7 @@ public class ShowQueueViewController: UIViewController {
     @IBOutlet public weak var addMatchToQueueButton: UIBarButtonItem!
 
     public var queueManager: QueueManager?
-    public var queue: QueueView?
+    public var queueView: QueueView?
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +21,13 @@ public class ShowQueueViewController: UIViewController {
     }
 
     public func initializeDelegates() {
-        queue = QueueView(display: currentQueue)
-        queueManager = APIManagedQueue(queueView: queue!)
-        currentQueue!.dataSource = queue
+        queueView = QueueView(display: currentQueue, onDelete: removeMatch)
+        if queueManager == nil {
+            queueManager = APIManagedQueue(
+                queueView: queueView!
+            )
+        }
+        currentQueue!.dataSource = queueView
     }
 
     @IBAction public func refreshQueue() {
@@ -41,8 +45,12 @@ public class ShowQueueViewController: UIViewController {
         addMatchToQueueButton.enabled = false
     }
 
-    @IBAction func cancelAddMatch(segue:UIStoryboardSegue) {
+    @IBAction func cancelAddMatch(segue: UIStoryboardSegue) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    private func removeMatch(matchId: String) {
+        self.queueManager!.removeMatch(matchId)
     }
 
     private func isRunningTests() -> Bool {

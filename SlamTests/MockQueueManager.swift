@@ -4,6 +4,7 @@ import UIKit
 class MockQueueManager: QueueManager {
     var loadQueueCalled = false
     var reloadQueueCalled = false
+    var removeMatchWasCalled = false
     var queueView: QueueView
 
     init() {
@@ -12,5 +13,9 @@ class MockQueueManager: QueueManager {
 
     func loadQueue(callback: () -> Void) {
         reloadQueueCalled = true
+    }
+
+    func removeMatch(matchId: String) {
+        removeMatchWasCalled = true
     }
 }

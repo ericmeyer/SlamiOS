@@ -16,11 +16,11 @@ class ShowQueueViewControllerSpec: QuickSpec {
             }
 
             it("creates the queue") {
-                expect(controller.queue).to(beNil())
+                expect(controller.queueView).to(beNil())
 
                 controller.initializeDelegates()
 
-                expect(controller.queue).notTo(beNil())
+                expect(controller.queueView).notTo(beNil())
             }
 
             it("creates the queue manager with the queue") {
@@ -28,8 +28,17 @@ class ShowQueueViewControllerSpec: QuickSpec {
 
                 controller.initializeDelegates()
 
-                let queueManager = controller.queueManager!
-                expect(queueManager.queueView).to(beIdenticalTo(controller.queue))
+                var queueManager = controller.queueManager
+                expect(queueManager!.queueView).to(beIdenticalTo(controller.queueView))
+            }
+
+            it("sets the callback for removing a match") {
+                var mockManager = MockQueueManager()
+                controller.queueManager = mockManager
+                controller.initializeDelegates()
+
+                controller.queueView!.onDelete("1")
+                expect(mockManager.removeMatchWasCalled).to(beTrue())
             }
         }
 

@@ -5,16 +5,23 @@ import Slam
 class MatchSpec: QuickSpec {
     override func spec() {
         describe("A match in the queue") {
+            var match: Match?
+            let matchData = ["id":"id","playerOne":"One","playerTwo":"Two"]
+
+            beforeEach {
+                match = Match(matchData: matchData)
+            }
+
             it("has player one") {
-                let matchData = ["playerOne":"One","playerTwo":"Two"]
-                let match = Match(matchData: matchData)
-                expect(match.playerOne).to(equal("One"))
+                expect(match!.playerOne).to(equal("One"))
             }
 
             it("has player two") {
-                let matchData = ["playerOne":"One","playerTwo":"Two"]
-                let match = Match(matchData: matchData)
-                expect(match.playerTwo).to(equal("Two"))
+                expect(match!.playerTwo).to(equal("Two"))
+            }
+
+            it("has an id") {
+                expect(match!.id).to(equal("id"))
             }
         }
     }
