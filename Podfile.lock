@@ -1,12 +1,42 @@
 PODS:
+  - Google/Core (1.0.7):
+    - GoogleNetworkingUtilities (~> 1.0)
+    - GoogleSymbolUtilities (~> 1.0)
+    - GoogleUtilities (~> 1.0)
+  - Google/SignIn (1.0.7):
+    - Google/Core
+    - GoogleSignIn (~> 2.0)
+  - GoogleAppUtilities (1.0.0):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleAuthUtilities (1.0.1):
+    - GoogleNetworkingUtilities (~> 1.0)
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleNetworkingUtilities (1.0.0):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleSignIn (2.2.0):
+    - GoogleAppUtilities (~> 1)
+    - GoogleAuthUtilities (~> 1)
+    - GoogleNetworkingUtilities (~> 1)
+    - GoogleUtilities (~> 1)
+  - GoogleSymbolUtilities (1.0.0)
+  - GoogleUtilities (1.0.1):
+    - GoogleSymbolUtilities (~> 1.0)
   - Nimble (0.4.2)
   - Quick (0.3.1)
 
 DEPENDENCIES:
+  - Google/SignIn
   - Nimble
   - Quick (~> 0.3.0)
 
 SPEC CHECKSUMS:
+  Google: 875f5a8ade86dd02e36586e4a54814843938c7f6
+  GoogleAppUtilities: c01c6a5671e9da8b9d690fdaec5959d6c2aac699
+  GoogleAuthUtilities: 049ffd3a297cdffd271451b82fd4e75304f15ef3
+  GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
+  GoogleSignIn: c45d8d1a873784a3283b4f47f331dc06d8a727b6
+  GoogleSymbolUtilities: a7b0feed1fe667c8d5e647177938d0ecd62d6948
+  GoogleUtilities: e3475cd4d45134221d2f3f3626095a1c49b62041
   Nimble: 49b7a7da8919f42823d37c6d68cc6d15a7009f32
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
 

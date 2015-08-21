@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		070066F01B87B35C00C11714 /* LoginViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070066EF1B87B35C00C11714 /* LoginViewControllerSpec.swift */; };
 		070066F21B87B39900C11714 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070066F11B87B39900C11714 /* LoginViewController.swift */; };
+		070E87571B87BC630087E9C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 070E87561B87BC630087E9C1 /* GoogleService-Info.plist */; };
 		07327B311AAA51A800F27545 /* AddMatchViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07327B301AAA51A800F27545 /* AddMatchViewControllerSpec.swift */; };
 		0732B88C1AAA58DD008DEF25 /* AddMatchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA28E2DABA82D66751AF956 /* AddMatchInteractor.swift */; };
 		073B10581AB30DCA00D922A2 /* MockAddMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B10571AB30DCA00D922A2 /* MockAddMatchView.swift */; };
@@ -40,6 +41,7 @@
 		6CE7C8211AB5FCB9007698F0 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7C8201AB5FCB9007698F0 /* Match.swift */; };
 		6CE7C8321AB609A7007698F0 /* MatchSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7C8311AB609A7007698F0 /* MatchSpec.swift */; };
 		874EDFAC1EB785FF4FCAF682 /* Pods_SlamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156E4A4B815866452FF7E87D /* Pods_SlamTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		9FEC9C8AFD535A6EF629AE78 /* libPods-Slam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FA10D7103CF33C29439588 /* libPods-Slam.a */; };
 		FF7041431AF403A800AAACF0 /* QueueManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7041421AF403A800AAACF0 /* QueueManagerProtocol.swift */; };
 		FF70414D1AF40D1500AAACF0 /* MockQueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF70414C1AF40D1500AAACF0 /* MockQueueManager.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +72,7 @@
 /* Begin PBXFileReference section */
 		070066EF1B87B35C00C11714 /* LoginViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerSpec.swift; sourceTree = "<group>"; };
 		070066F11B87B39900C11714 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		070E87561B87BC630087E9C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		07327B301AAA51A800F27545 /* AddMatchViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMatchViewControllerSpec.swift; sourceTree = "<group>"; };
 		073B10571AB30DCA00D922A2 /* MockAddMatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAddMatchView.swift; sourceTree = "<group>"; };
 		073F06101AB3082E0098654F /* AddMatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMatchView.swift; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 		2FA28E2DABA82D66751AF956 /* AddMatchInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMatchInteractor.swift; sourceTree = "<group>"; };
 		2FA28F87589F36D89DA68BC1 /* MockAddMatchInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAddMatchInteractor.swift; sourceTree = "<group>"; };
 		307A67E207764DB829D3BD73 /* Pods-SlamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlamTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlamTests/Pods-SlamTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4B5EB67CB9F4B5B509BD019D /* Pods-Slam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slam/Pods-Slam.debug.xcconfig"; sourceTree = "<group>"; };
 		6C4E1CA21AA60C9E0099DE4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		6C4E1CA81AA60D560099DE4C /* QueueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueView.swift; sourceTree = "<group>"; };
 		6C4E1CA91AA60D560099DE4C /* APIManagedQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManagedQueue.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 		6CE7C8201AB5FCB9007698F0 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		6CE7C8311AB609A7007698F0 /* MatchSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchSpec.swift; sourceTree = "<group>"; };
 		77C6A7C866D64FC9EA6E9399 /* Pods-SlamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlamTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlamTests/Pods-SlamTests.release.xcconfig"; sourceTree = "<group>"; };
+		A0FA10D7103CF33C29439588 /* libPods-Slam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Slam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6BB9C517D0254D43895F1D8 /* Pods-Slam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slam.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slam/Pods-Slam.release.xcconfig"; sourceTree = "<group>"; };
 		FF7041421AF403A800AAACF0 /* QueueManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManagerProtocol.swift; sourceTree = "<group>"; };
 		FF70414C1AF40D1500AAACF0 /* MockQueueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockQueueManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FEC9C8AFD535A6EF629AE78 /* libPods-Slam.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				6C4E1CA01AA60C9E0099DE4C /* Base.lproj */,
+				070E87561B87BC630087E9C1 /* GoogleService-Info.plist */,
 				07CBE7BB1AA104FE00228BE9 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -238,6 +246,8 @@
 			children = (
 				307A67E207764DB829D3BD73 /* Pods-SlamTests.debug.xcconfig */,
 				77C6A7C866D64FC9EA6E9399 /* Pods-SlamTests.release.xcconfig */,
+				4B5EB67CB9F4B5B509BD019D /* Pods-Slam.debug.xcconfig */,
+				A6BB9C517D0254D43895F1D8 /* Pods-Slam.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -376,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				156E4A4B815866452FF7E87D /* Pods_SlamTests.framework */,
+				A0FA10D7103CF33C29439588 /* libPods-Slam.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -387,9 +398,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07CBE7D61AA104FE00228BE9 /* Build configuration list for PBXNativeTarget "Slam" */;
 			buildPhases = (
+				EE63EA53E754669B8937BCE5 /* Check Pods Manifest.lock */,
 				07CBE7B31AA104FE00228BE9 /* Sources */,
 				07CBE7B41AA104FE00228BE9 /* Frameworks */,
 				07CBE7B51AA104FE00228BE9 /* Resources */,
+				A9858557890055954711588D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -466,6 +479,7 @@
 			files = (
 				6C4E1CA51AA60C9E0099DE4C /* LaunchScreen.xib in Resources */,
 				6C4E1CB01AA60DA60099DE4C /* Main.storyboard in Resources */,
+				070E87571B87BC630087E9C1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +536,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlamTests/Pods-SlamTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9858557890055954711588D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Slam/Pods-Slam-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE63EA53E754669B8937BCE5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -684,6 +728,7 @@
 		};
 		07CBE7D71AA104FE00228BE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B5EB67CB9F4B5B509BD019D /* Pods-Slam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Slam/Info.plist;
@@ -694,6 +739,7 @@
 		};
 		07CBE7D81AA104FE00228BE9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6BB9C517D0254D43895F1D8 /* Pods-Slam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Slam/Info.plist;
