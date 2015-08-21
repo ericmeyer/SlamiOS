@@ -35,11 +35,110 @@ class SlamAPISpec: QuickSpec {
 
         describe("SlamAPI") {
 
+            describe("Attemping login") {
+                it("makes an HTTP request") {
+                    let expectedUrl = NSURL(string: slamApi.loginURL)
+                    httpClient.setResponse(self.toJSON([:]))
+
+                    slamApi.attemptLogin(
+                        email: "",
+                        password: "",
+                        onSuccess: {session in}
+                    )
+
+                    expect(httpClient.wasRequestMade).to(beTrue())
+                    expect(httpClient.lastRequest!.URL).to(equal(expectedUrl))
+                    expect(httpClient.lastRequest!.HTTPMethod).to(equal("POST"))
+                }
+
+                it("includes the email and password") {
+                    httpClient.setResponse(self.toJSON([:]))
+
+                    slamApi.attemptLogin(
+                        email: "someemail",
+                        password: "password",
+                        onSuccess: {session in}
+                    )
+
+                    expect(httpClient.lastRequestBody).notTo(beNil())
+                    expect(httpClient.lastRequestBody).to(match("email=someemail"))
+                    expect(httpClient.lastRequestBody).to(match("password=password"))
+                }
+
+                it("calls the callback on success") {
+                    var callbackCalled = false
+                    let onSuccess: (session: Session) -> Void = { session in
+                        callbackCalled = true
+                    }
+                    httpClient.setResponse(self.toJSON([:]))
+
+                    slamApi.attemptLogin(
+                        email: "",
+                        password: "",
+                        onSuccess: onSuccess
+                    )
+                    expect(callbackCalled).to(beTrue())
+                }
+
+                it("parses an authenticated response") {
+                    httpClient.setResponse(self.toJSON([
+                        "success": true,
+                        "token": "123ABC"
+                    ]))
+
+                    var actualSession: Session!
+                    slamApi.attemptLogin(
+                        email: "",
+                        password: "",
+                        onSuccess: {session in
+                            actualSession = session
+                        }
+                    )
+
+                    expect(actualSession.isAuthenticated).to(beTrue())
+                    expect(actualSession.token).to(equal("123ABC"))
+                }
+
+                it("parses an unauthenticated response") {
+                    httpClient.setResponse(self.toJSON([
+                        "success": false
+                    ]))
+
+                    var actualSession: Session!
+                    slamApi.attemptLogin(
+                        email: "",
+                        password: "",
+                        onSuccess: {session in
+                            actualSession = session
+                        }
+                    )
+
+                    expect(actualSession.isAuthenticated).to(beFalse())
+                    expect(actualSession.token).to(beNil())
+                }
+
+                it("is not authenticated for an empty response") {
+                    httpClient.setResponse(self.toJSON([:]))
+
+                    var actualSession: Session!
+                    slamApi.attemptLogin(
+                        email: "",
+                        password: "",
+                        onSuccess: {session in
+                            actualSession = session
+                        }
+                    )
+
+                    expect(actualSession.isAuthenticated).to(beFalse())
+                    expect(actualSession.token).to(beNil())
+                }
+            }
+
             describe("Adding a new match to the queue") {
                 it("makes an HTTP request") {
                     httpClient.setResponse(self.toJSON([]))
 
-                    slamApi.addMatch("Taka", playerTwo: "Emmanuel", onSuccess: {() -> Void in})
+                    slamApi.addMatch("Taka", playerTwo: "Emmanuel", onSuccess: {})
 
                     expect(httpClient.wasRequestMade).to(beTrue())
                     let expectedURL = NSURL(string: slamApi.addMatchURL)
@@ -50,7 +149,7 @@ class SlamAPISpec: QuickSpec {
                 it("includes the player params in the body") {
                     httpClient.setResponse(self.toJSON([]))
 
-                    slamApi.addMatch("Taka", playerTwo: "Emmanuel", onSuccess: {() -> Void in})
+                    slamApi.addMatch("Taka", playerTwo: "Emmanuel", onSuccess: {})
 
                     expect(httpClient.lastRequestBody).notTo(beNil())
                     expect(httpClient.lastRequestBody).to(match("playerOne=Taka"))

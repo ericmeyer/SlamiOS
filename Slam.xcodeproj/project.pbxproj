@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070066F01B87B35C00C11714 /* LoginViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070066EF1B87B35C00C11714 /* LoginViewControllerSpec.swift */; };
+		070066F21B87B39900C11714 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070066F11B87B39900C11714 /* LoginViewController.swift */; };
 		07327B311AAA51A800F27545 /* AddMatchViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07327B301AAA51A800F27545 /* AddMatchViewControllerSpec.swift */; };
 		0732B88C1AAA58DD008DEF25 /* AddMatchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA28E2DABA82D66751AF956 /* AddMatchInteractor.swift */; };
 		073B10581AB30DCA00D922A2 /* MockAddMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073B10571AB30DCA00D922A2 /* MockAddMatchView.swift */; };
@@ -16,6 +18,11 @@
 		0743778E1ACF517100A63678 /* AsynchronousHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0743778D1ACF517100A63678 /* AsynchronousHTTPClient.swift */; };
 		074377911ACF53F900A63678 /* MockHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074377901ACF53F900A63678 /* MockHTTPClient.swift */; };
 		075397071AAA46EB000655A5 /* AddMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075397061AAA46EB000655A5 /* AddMatchViewController.swift */; };
+		0758E5641BACAEE200C60EA8 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0758E5631BACAEE200C60EA8 /* Session.swift */; };
+		0773CBF61B90EC1900276AB5 /* DefaultAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773CBF51B90EC1900276AB5 /* DefaultAuthenticator.swift */; };
+		0773CBF91B90F15300276AB5 /* DefaultAuthenticatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773CBF81B90F15300276AB5 /* DefaultAuthenticatorSpec.swift */; };
+		0773CBFC1B90F1C900276AB5 /* AuthenticationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773CBFB1B90F1C900276AB5 /* AuthenticationInteractor.swift */; };
+		0773CBFE1B90F9C300276AB5 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0773CBFD1B90F9C300276AB5 /* AuthenticationView.swift */; };
 		07CBE7BD1AA104FE00228BE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CBE7BC1AA104FE00228BE9 /* AppDelegate.swift */; };
 		2FA2802F86513A15296F3055 /* PostBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA28CFC86B8A9C1D807D730 /* PostBody.swift */; };
 		2FA280C3C24151CE29A63B46 /* DefaultAddMatchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA28CAEE60C8C5936B01266 /* DefaultAddMatchInteractor.swift */; };
@@ -66,6 +73,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		070066EF1B87B35C00C11714 /* LoginViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerSpec.swift; sourceTree = "<group>"; };
+		070066F11B87B39900C11714 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		07327B301AAA51A800F27545 /* AddMatchViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMatchViewControllerSpec.swift; sourceTree = "<group>"; };
 		073B10571AB30DCA00D922A2 /* MockAddMatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAddMatchView.swift; sourceTree = "<group>"; };
 		073F06101AB3082E0098654F /* AddMatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMatchView.swift; sourceTree = "<group>"; };
@@ -73,6 +82,11 @@
 		0743778D1ACF517100A63678 /* AsynchronousHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousHTTPClient.swift; sourceTree = "<group>"; };
 		074377901ACF53F900A63678 /* MockHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockHTTPClient.swift; sourceTree = "<group>"; };
 		075397061AAA46EB000655A5 /* AddMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMatchViewController.swift; sourceTree = "<group>"; };
+		0758E5631BACAEE200C60EA8 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		0773CBF51B90EC1900276AB5 /* DefaultAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAuthenticator.swift; sourceTree = "<group>"; };
+		0773CBF81B90F15300276AB5 /* DefaultAuthenticatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAuthenticatorSpec.swift; sourceTree = "<group>"; };
+		0773CBFB1B90F1C900276AB5 /* AuthenticationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationInteractor.swift; sourceTree = "<group>"; };
+		0773CBFD1B90F9C300276AB5 /* AuthenticationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		07CBE7B71AA104FE00228BE9 /* Slam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07CBE7BB1AA104FE00228BE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07CBE7BC1AA104FE00228BE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +140,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0773CBF71B90F13600276AB5 /* AttemptLogin */ = {
+			isa = PBXGroup;
+			children = (
+				070066EF1B87B35C00C11714 /* LoginViewControllerSpec.swift */,
+				0773CBF81B90F15300276AB5 /* DefaultAuthenticatorSpec.swift */,
+			);
+			name = AttemptLogin;
+			sourceTree = "<group>";
+		};
+		0773CBFA1B90F19A00276AB5 /* AttemptLogin */ = {
+			isa = PBXGroup;
+			children = (
+				070066F11B87B39900C11714 /* LoginViewController.swift */,
+				0773CBFB1B90F1C900276AB5 /* AuthenticationInteractor.swift */,
+				0773CBF51B90EC1900276AB5 /* DefaultAuthenticator.swift */,
+				0773CBFD1B90F9C300276AB5 /* AuthenticationView.swift */,
+			);
+			name = AttemptLogin;
+			sourceTree = "<group>";
+		};
 		077D55321AAFA8BF0036A7DC /* AddMatchToQueue */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +231,7 @@
 				6C4E1CA71AA60D560099DE4C /* ShowQueue */,
 				07CBE7BC1AA104FE00228BE9 /* AppDelegate.swift */,
 				07CBE7BA1AA104FE00228BE9 /* Supporting Files */,
+				0773CBFA1B90F19A00276AB5 /* AttemptLogin */,
 			);
 			path = Slam;
 			sourceTree = "<group>";
@@ -262,6 +297,7 @@
 		6C4E1CB11AA60E2A0099DE4C /* Slam */ = {
 			isa = PBXGroup;
 			children = (
+				0773CBF71B90F13600276AB5 /* AttemptLogin */,
 				07BF01B61AFCF1B600FF4BC0 /* HTTP */,
 				6CE7C8261AB6099C007698F0 /* Matches */,
 				6CD021F21AB3798900E5C44D /* API */,
@@ -338,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				6CD021F01AB377EA00E5C44D /* SlamAPI.swift */,
+				0758E5631BACAEE200C60EA8 /* Session.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -529,11 +566,16 @@
 				0732B88C1AAA58DD008DEF25 /* AddMatchInteractor.swift in Sources */,
 				6C4E1CAC1AA60D560099DE4C /* APIManagedQueue.swift in Sources */,
 				FF7041431AF403A800AAACF0 /* QueueManagerProtocol.swift in Sources */,
+				070066F21B87B39900C11714 /* LoginViewController.swift in Sources */,
+				0773CBF61B90EC1900276AB5 /* DefaultAuthenticator.swift in Sources */,
+				0758E5641BACAEE200C60EA8 /* Session.swift in Sources */,
 				6CE7C8211AB5FCB9007698F0 /* Match.swift in Sources */,
 				6C4E1CAD1AA60D560099DE4C /* ShowQueueViewController.swift in Sources */,
 				075397071AAA46EB000655A5 /* AddMatchViewController.swift in Sources */,
 				0743777F1ACF3BC100A63678 /* HTTPClient.swift in Sources */,
 				07CBE7BD1AA104FE00228BE9 /* AppDelegate.swift in Sources */,
+				0773CBFE1B90F9C300276AB5 /* AuthenticationView.swift in Sources */,
+				0773CBFC1B90F1C900276AB5 /* AuthenticationInteractor.swift in Sources */,
 				6C4E1CAB1AA60D560099DE4C /* QueueView.swift in Sources */,
 				073F06121AB308780098654F /* AddMatchView.swift in Sources */,
 				0743778E1ACF517100A63678 /* AsynchronousHTTPClient.swift in Sources */,
@@ -555,10 +597,12 @@
 				6C60C1C61AB70E1A00E8ED5E /* MockQueueView.swift in Sources */,
 				6CE7C8321AB609A7007698F0 /* MatchSpec.swift in Sources */,
 				6C4E1CB81AA60E2A0099DE4C /* ShowQueueViewControllerSpec.swift in Sources */,
+				070066F01B87B35C00C11714 /* LoginViewControllerSpec.swift in Sources */,
 				6C6C2FC71ABCBC4D005DCC0A /* MockUITableView.swift in Sources */,
 				6C4E1CB71AA60E2A0099DE4C /* QueueViewSpec.swift in Sources */,
 				07327B311AAA51A800F27545 /* AddMatchViewControllerSpec.swift in Sources */,
 				6C4E1CB61AA60E2A0099DE4C /* APIManagedQueueSpec.swift in Sources */,
+				0773CBF91B90F15300276AB5 /* DefaultAuthenticatorSpec.swift in Sources */,
 				2FA282448BF611638AAE8C26 /* MockAddMatchInteractor.swift in Sources */,
 				2FA28600E06D6B94B6F01325 /* AsynchronousHTTPClientSpec.swift in Sources */,
 				2FA289ABEDF006F8432BD429 /* PostBodySpec.swift in Sources */,

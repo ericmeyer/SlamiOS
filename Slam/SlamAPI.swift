@@ -4,10 +4,34 @@ public class SlamAPI {
     public let getCurrentQueueURL = "http://slamapi.herokuapp.com/matches"
     public let addMatchURL = "http://slamapi.herokuapp.com/matches"
     public let removeMatchFromQueueURL = "http://slamapi.herokuapp.com/matches"
+    public let loginURL = "http://slamapi.herokuapp.com/login"
     let httpClient: HTTPClient
 
     public init(httpClient: HTTPClient) {
         self.httpClient = httpClient
+    }
+
+    public func attemptLogin(#email: String, password: String, onSuccess: (session: Session) -> Void) {
+        var request = NSMutableURLRequest(
+            URL: NSURL(string: loginURL)!
+        )
+        request.HTTPMethod = "POST"
+        var credentials = [
+            "email": email,
+            "password": password
+        ]
+        var postString = PostBody(params: credentials).asString()
+        request.HTTPBody = (postString as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+
+        httpClient.makeRequest(request, onSuccess: {(data: NSData) in
+            var sessionData: NSDictionary = self.deserializeJSON(data) as! NSDictionary
+            var session = Session()
+            session.token = sessionData["token"] as! String?
+            if let isAuthenticated = sessionData["success"] as? Bool {
+                session.isAuthenticated = isAuthenticated
+            }
+            onSuccess(session: session)
+        })
     }
 
     public func addMatch(playerOne: String, playerTwo: String, onSuccess: () -> Void) {
