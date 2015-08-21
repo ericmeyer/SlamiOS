@@ -9,6 +9,11 @@ class LoginViewControllerSpec: QuickSpec {
             it("exists") {
                 let controller = LoginViewController()
             }
+
+            it("gets an objective-c value") {
+                let foo = Foo()
+                expect(foo.bar()).to(equal("Hello World"))
+            }
         }
     }
 }
