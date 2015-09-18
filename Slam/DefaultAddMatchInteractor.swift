@@ -1,5 +1,3 @@
-import Foundation
-
 public class DefaultAddMatchInteractor : AddMatchInteractor {
 
     let view : AddMatchView
