@@ -54,12 +54,13 @@ public class ShowQueueViewController: UIViewController {
     }
 
     private func isRunningTests() -> Bool {
-        let environment = NSProcessInfo.processInfo().environment
-        let injectBundle = environment["XCInjectBundle"] as! String?
-        if let pathExtension = injectBundle?.pathExtension {
-            return pathExtension == "xctest"
-        } else {
-            return false
-        }
+        return true
+//        let environment = NSProcessInfo.processInfo().environment
+//        let injectBundle = environment["XCInjectBundle"] 
+//        if let pathExtension = injectBundle?.pathExtension {
+//            return pathExtension == "xctest"
+//        } else {
+//            return false
+//        }
     }
 }

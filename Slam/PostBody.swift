@@ -13,11 +13,11 @@ public class PostBody {
         for (key, value) in params {
             pairs.append("\(encode(key))=\(encode(value))")
         }
-        return "&".join(pairs)
+        return pairs.joinWithSeparator("&")
     }
 
     private func encode(value: String) -> String {
-        var charSet = NSCharacterSet.URLHostAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
+        let charSet = NSCharacterSet.URLHostAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
         charSet.removeCharactersInString("&")
         return value.stringByAddingPercentEncodingWithAllowedCharacters(charSet)!
     }

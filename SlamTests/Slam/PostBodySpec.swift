@@ -29,7 +29,7 @@ class PostBodySpec: QuickSpec {
                     "baz": "buzz"
                 ]
 
-                var body = self.asPostString(params)
+                let body = self.asPostString(params)
                 expect(body).to(match("foo=bar"))
                 expect(body).to(match("&"))
                 expect(body).to(match("baz=buzz"))

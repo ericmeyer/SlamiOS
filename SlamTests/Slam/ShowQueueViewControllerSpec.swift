@@ -33,7 +33,7 @@ class ShowQueueViewControllerSpec: QuickSpec {
             }
 
             it("sets the callback for removing a match") {
-                var mockManager = MockQueueManager()
+                let mockManager = MockQueueManager()
                 controller.queueManager = mockManager
                 controller.initializeDelegates()
 

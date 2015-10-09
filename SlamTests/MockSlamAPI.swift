@@ -12,7 +12,7 @@ class MockSlamAPI: SlamAPI {
     var loggedInEmail: String?
     var loggedInPassword: String?
 
-    override func attemptLogin(#email: String, password: String, onSuccess: (Session) -> Void) {
+    override func attemptLogin(email email: String, password: String, onSuccess: (Session) -> Void) {
         loggedInEmail = email
         loggedInPassword = password
         wasLoginAttempted = true

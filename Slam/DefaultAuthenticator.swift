@@ -9,7 +9,7 @@ public class DefaultAuthenticator: NSObject, AuthenticationInteractor {
         api = SlamAPI(httpClient: AsynchronousHTTPClient())
     }
 
-    public func attemptLogin(#email: String, password: String) {
+    public func attemptLogin(email email: String, password: String) {
         api?.attemptLogin(
             email: email,
             password: password,

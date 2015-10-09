@@ -59,7 +59,7 @@ class QueueViewSpec: QuickSpec {
                         let match = Match(matchData: matchData)
                         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
                         var matchId = "0"
-                        var onDelete = {(id) in
+                        let onDelete = {(id) in
                             matchId = id
                         }
                         display = MockUITableView()
@@ -77,7 +77,7 @@ class QueueViewSpec: QuickSpec {
                         let match = Match(matchData: matchData)
                         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
                         var matchDeleted = "0"
-                        var onDelete = {
+                        let onDelete = {
                             id in matchDeleted = id
                         }
                         display = MockUITableView()

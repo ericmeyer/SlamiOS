@@ -1,18 +1,19 @@
+import Foundation
 import Slam
 import Quick
 import Nimble
 
-@objc class MockAuthenticationView: AuthenticationView {
+class MockAuthenticationView: AuthenticationView {
     var wasToldLoginSuccessful = false
 
-    func loginWasSuccessful() {
+    @objc func loginWasSuccessful() {
         wasToldLoginSuccessful = true
     }
 }
 class DefaultAuthenticatorSpec: QuickSpec {
     override func spec() {
         it("has an instance of slamAPI") {
-            var authenticator = DefaultAuthenticator()
+            let authenticator = DefaultAuthenticator()
 
             expect(authenticator.api).notTo(beNil())
         }

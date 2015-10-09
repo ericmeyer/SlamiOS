@@ -8,7 +8,7 @@ class MockUITableView: UITableView {
         receivedReloadData = true
     }
 
-    override func deleteRowsAtIndexPaths(indexPaths: [AnyObject], withRowAnimation animation: UITableViewRowAnimation) {
+    override func deleteRowsAtIndexPaths(indexPaths: [NSIndexPath], withRowAnimation animation: UITableViewRowAnimation) {
         wasRowDeleted = true;
     }
 }

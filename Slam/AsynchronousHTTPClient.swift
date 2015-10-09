@@ -8,7 +8,7 @@ public class AsynchronousHTTPClient: HTTPClient {
             request,
             queue: NSOperationQueue.mainQueue(),
             completionHandler: {(response, data, error) in
-                onSuccess(data)
+                onSuccess(data!)
             }
         )
     }

@@ -44,7 +44,7 @@
 		6CD021F41AB379A100E5C44D /* SlamAPISpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD021F31AB379A100E5C44D /* SlamAPISpec.swift */; };
 		6CE7C8211AB5FCB9007698F0 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7C8201AB5FCB9007698F0 /* Match.swift */; };
 		6CE7C8321AB609A7007698F0 /* MatchSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7C8311AB609A7007698F0 /* MatchSpec.swift */; };
-		874EDFAC1EB785FF4FCAF682 /* Pods_SlamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156E4A4B815866452FF7E87D /* Pods_SlamTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		874EDFAC1EB785FF4FCAF682 /* Pods_SlamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156E4A4B815866452FF7E87D /* Pods_SlamTests.framework */; };
 		FF7041431AF403A800AAACF0 /* QueueManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7041421AF403A800AAACF0 /* QueueManagerProtocol.swift */; };
 		FF70414D1AF40D1500AAACF0 /* MockQueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF70414C1AF40D1500AAACF0 /* MockQueueManager.swift */; };
 /* End PBXBuildFile section */
@@ -459,7 +459,9 @@
 		07CBE7AF1AA104FE00228BE9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "8th Light";
 				TargetAttributes = {
 					07CBE7B61AA104FE00228BE9 = {
@@ -659,6 +661,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -724,6 +727,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Slam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.8thlight.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -734,6 +738,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Slam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.8thlight.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -753,6 +758,7 @@
 				);
 				INFOPLIST_FILE = SlamTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.8thlight.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slam.app/Slam";
 			};
@@ -769,6 +775,7 @@
 				);
 				INFOPLIST_FILE = SlamTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.8thlight.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slam.app/Slam";
 			};

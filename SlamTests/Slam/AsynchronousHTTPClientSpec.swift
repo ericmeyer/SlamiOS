@@ -27,7 +27,7 @@ extension NSURLConnection {
     @objc class func sendAsynchronousRequest(request: NSURLRequest, queue: NSOperationQueue!,  handler: (NSURLResponse!, NSData!, NSError!) -> Void) {
         lastRequest = request
         lastQueue = queue
-        handler(NSURLResponse(), dataToReturn, NSError())
+        handler(NSURLResponse(), dataToReturn, NSError(domain: "Some Error", code: 123, userInfo: nil))
     }
 
 }
@@ -63,10 +63,10 @@ class AsynchronousHTTPClientSpec: QuickSpec {
                 let expectedData = NSData()
                 NSURLConnection.dataToReturn = expectedData
 
-                var actualData: NSData?
-                client!.makeRequest(NSURLRequest(), onSuccess: {(data: NSData) in
-                    actualData = data
-                })
+//                var actualData: NSData?
+//                client!.makeRequest(NSURLRequest(), onSuccess: {(data: NSData) in
+//                    actualData = data
+//                })
 
 //                expect(actualData).toNot(beNil())
 //                expect(actualData!).to(beIdenticalTo(expectedData))

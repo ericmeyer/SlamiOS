@@ -10,7 +10,7 @@ class APIManagedQueueSpec: QuickSpec {
             var mockAPI: MockSlamAPI?
             var queueManager: APIManagedQueue?
             var callbackCalled = false
-            var callback = {() in
+            let callback = {() in
                 callbackCalled = true
             }
 

@@ -6,13 +6,16 @@ class SlamAPISpec: QuickSpec {
 
     func toJSON(value: AnyObject) -> String {
         if NSJSONSerialization.isValidJSONObject(value) {
-            if let data = NSJSONSerialization.dataWithJSONObject(value, options: nil, error: nil) {
+            do {
+                let data = try NSJSONSerialization.dataWithJSONObject(value, options: [])
                 if let json = NSString(data: data, encoding: NSUTF8StringEncoding) {
                     return json as String
                 }
+            } catch _ {
+                return "{}"
             }
         }
-        return ""
+        return "{}"
     }
 
     override func setUp() {

@@ -11,21 +11,21 @@ public class SlamAPI {
         self.httpClient = httpClient
     }
 
-    public func attemptLogin(#email: String, password: String, onSuccess: (session: Session) -> Void) {
-        var request = NSMutableURLRequest(
+    public func attemptLogin(email email: String, password: String, onSuccess: (session: Session) -> Void) {
+        let request = NSMutableURLRequest(
             URL: NSURL(string: loginURL)!
         )
         request.HTTPMethod = "POST"
-        var credentials = [
+        let credentials = [
             "email": email,
             "password": password
         ]
-        var postString = PostBody(params: credentials).asString()
+        let postString = PostBody(params: credentials).asString()
         request.HTTPBody = (postString as NSString).dataUsingEncoding(NSUTF8StringEncoding)
 
         httpClient.makeRequest(request, onSuccess: {(data: NSData) in
-            var sessionData: NSDictionary = self.deserializeJSON(data) as! NSDictionary
-            var session = Session()
+            let sessionData: NSDictionary = self.deserializeJSON(data) as! NSDictionary
+            let session = Session()
             session.token = sessionData["token"] as! String?
             if let isAuthenticated = sessionData["success"] as? Bool {
                 session.isAuthenticated = isAuthenticated
@@ -35,16 +35,16 @@ public class SlamAPI {
     }
 
     public func addMatch(playerOne: String, playerTwo: String, onSuccess: () -> Void) {
-        var request = NSMutableURLRequest(
+        let request = NSMutableURLRequest(
             URL: NSURL(string: addMatchURL)!
         )
 
         request.HTTPMethod = "POST"
-        var players = [
+        let players = [
             "playerOne": playerOne,
             "playerTwo": playerTwo
         ]
-        var postString = PostBody(params: players).asString()
+        let postString = PostBody(params: players).asString()
         request.HTTPBody = (postString as NSString).dataUsingEncoding(NSUTF8StringEncoding)
 
         httpClient.makeRequest(request, onSuccess: {(data: NSData) in
@@ -53,11 +53,11 @@ public class SlamAPI {
     }
 
     public func getQueue(callback: ([Match]) -> Void) {
-        var request = NSMutableURLRequest(
+        let request = NSMutableURLRequest(
             URL: NSURL(string: getCurrentQueueURL)!
         )
         httpClient.makeRequest(request, onSuccess: {(data: NSData) in
-            var matchDataList: [NSDictionary] = self.deserializeJSON(data) as! [NSDictionary]
+            let matchDataList: [NSDictionary] = self.deserializeJSON(data) as! [NSDictionary]
             callback(matchDataList.map({matchData in
                 Match(matchData: matchData as! [String : String])
             }))
@@ -65,7 +65,7 @@ public class SlamAPI {
     }
 
     public func removeMatchFromQueue(id: String, onSuccess: () -> Void) {
-        var request = NSMutableURLRequest(
+        let request = NSMutableURLRequest(
             URL: NSURL(string: "\(removeMatchFromQueueURL)?id=\(id)")!
         )
 
@@ -77,10 +77,8 @@ public class SlamAPI {
     }
 
     private func deserializeJSON(data: NSData) -> AnyObject? {
-        return NSJSONSerialization.JSONObjectWithData(
+        return try? NSJSONSerialization.JSONObjectWithData(
             data,
-            options: NSJSONReadingOptions.MutableContainers,
-            error: nil
-        )
+            options: NSJSONReadingOptions.MutableContainers)
     }
 }

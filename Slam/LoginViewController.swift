@@ -12,8 +12,8 @@ public class LoginViewController: UIViewController, AuthenticationView {
 
     @IBAction public func attemptLogin() {
         interactor.attemptLogin(
-            email: emailTextField.text,
-            password: passwordTextField.text
+            email: emailTextField.text!,
+            password: passwordTextField.text!
         )
     }
 

@@ -19,15 +19,15 @@ public class AddMatchViewController: UIViewController, AddMatchView {
 
     @IBAction public func validateInput() {
         interactor?.validateInput(
-            playerOne: playerOneInput!.text,
-            playerTwo: playerTwoInput!.text
+            playerOne: playerOneInput!.text!,
+            playerTwo: playerTwoInput!.text!
         )
     }
 
     @IBAction public func addMatch() {
         interactor?.attemptAdd(
-            playerOne: playerOneInput!.text,
-            playerTwo: playerTwoInput!.text
+            playerOne: playerOneInput!.text!,
+            playerTwo: playerTwoInput!.text!
         )
     }
 

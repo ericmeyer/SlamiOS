@@ -10,7 +10,7 @@ class MockAuthenticationInteractor: NSObject, AuthenticationInteractor {
     var givenEmail = ""
     var givenPassword = ""
 
-    func attemptLogin(#email: String, password: String) {
+    func attemptLogin(email email: String, password: String) {
         wasToldToAttemptLogin = true
         givenEmail = email
         givenPassword = password
@@ -23,8 +23,7 @@ class LoginViewControllerSpec: QuickSpec {
 
         func loadController(controllerID: String) -> UIViewController! {
             let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-            let bundle = NSBundle.mainBundle()
-            let controller = storyboard.instantiateViewControllerWithIdentifier(controllerID) as! UIViewController
+            let controller = storyboard.instantiateViewControllerWithIdentifier(controllerID)
             return controller
         }
 
