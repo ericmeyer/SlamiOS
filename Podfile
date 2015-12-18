@@ -7,6 +7,6 @@ target 'SlamTests' do
   use_frameworks!
   # Locking to a specific commit until https://github.com/Quick/Quick/issues/360
   #   has been released
-  pod 'Quick', git: "https://github.com/Quick/Quick.git", commit: "30cc81de86"
-  pod 'Nimble', '~> 2.0.0'
+  pod 'Quick', '~> 0.8.0'
+  pod 'Nimble', '~> 3.0.0'
 end
