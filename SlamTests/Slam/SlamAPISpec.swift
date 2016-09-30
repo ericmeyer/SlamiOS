@@ -4,11 +4,11 @@ import Slam
 
 class SlamAPISpec: QuickSpec {
 
-    func toJSON(value: AnyObject) -> String {
-        if NSJSONSerialization.isValidJSONObject(value) {
+    func toJSON(_ value: AnyObject) -> String {
+        if JSONSerialization.isValidJSONObject(value) {
             do {
-                let data = try NSJSONSerialization.dataWithJSONObject(value, options: [])
-                if let json = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                let data = try JSONSerialization.data(withJSONObject: value, options: [])
+                if let json = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
                     return json as String
                 }
             } catch _ {
@@ -18,6 +18,10 @@ class SlamAPISpec: QuickSpec {
         return "{}"
     }
 
+    func emptyJSONResponse() -> String {
+        return toJSON([String:String]() as AnyObject)
+    }
+    
     override func setUp() {
         continueAfterFailure = false
     }
@@ -41,7 +45,7 @@ class SlamAPISpec: QuickSpec {
             describe("Attemping login") {
                 it("makes an HTTP request") {
                     let expectedUrl = NSURL(string: slamApi.loginURL)
-                    httpClient.setResponse(self.toJSON([:]))
+                    httpClient.setResponse(self.emptyJSONResponse())
 
                     slamApi.attemptLogin(
                         email: "",
@@ -50,12 +54,12 @@ class SlamAPISpec: QuickSpec {
                     )
 
                     expect(httpClient.wasRequestMade).to(beTrue())
-                    expect(httpClient.lastRequest!.URL).to(equal(expectedUrl))
-                    expect(httpClient.lastRequest!.HTTPMethod).to(equal("POST"))
+                    expect(httpClient.lastRequest!.url?.absoluteString).to(equal(expectedUrl?.absoluteString))
+                    expect(httpClient.lastRequest!.httpMethod).to(equal("POST"))
                 }
 
                 it("includes the email and password") {
-                    httpClient.setResponse(self.toJSON([:]))
+                    httpClient.setResponse(self.emptyJSONResponse())
 
                     slamApi.attemptLogin(
                         email: "someemail",
@@ -70,10 +74,10 @@ class SlamAPISpec: QuickSpec {
 
                 it("calls the callback on success") {
                     var callbackCalled = false
-                    let onSuccess: (session: Session) -> Void = { session in
+                    let onSuccess: (_ session: Session) -> Void = { session in
                         callbackCalled = true
                     }
-                    httpClient.setResponse(self.toJSON([:]))
+                    httpClient.setResponse(self.emptyJSONResponse())
 
                     slamApi.attemptLogin(
                         email: "",
@@ -87,7 +91,7 @@ class SlamAPISpec: QuickSpec {
                     httpClient.setResponse(self.toJSON([
                         "success": true,
                         "token": "123ABC"
-                    ]))
+                    ] as AnyObject))
 
                     var actualSession: Session!
                     slamApi.attemptLogin(
@@ -105,7 +109,7 @@ class SlamAPISpec: QuickSpec {
                 it("parses an unauthenticated response") {
                     httpClient.setResponse(self.toJSON([
                         "success": false
-                    ]))
+                    ] as AnyObject))
 
                     var actualSession: Session!
                     slamApi.attemptLogin(
@@ -121,7 +125,7 @@ class SlamAPISpec: QuickSpec {
                 }
 
                 it("is not authenticated for an empty response") {
-                    httpClient.setResponse(self.toJSON([:]))
+                    httpClient.setResponse(self.emptyJSONResponse())
 
                     var actualSession: Session!
                     slamApi.attemptLogin(
@@ -139,18 +143,18 @@ class SlamAPISpec: QuickSpec {
 
             describe("Adding a new match to the queue") {
                 it("makes an HTTP request") {
-                    httpClient.setResponse(self.toJSON([]))
+                    httpClient.setResponse(self.emptyJSONResponse())
 
                     slamApi.addMatch("Taka", playerTwo: "Emmanuel", onSuccess: {})
 
                     expect(httpClient.wasRequestMade).to(beTrue())
                     let expectedURL = NSURL(string: slamApi.addMatchURL)
-                    expect(httpClient.lastRequest!.URL).to(equal(expectedURL))
-                    expect(httpClient.lastRequest!.HTTPMethod).to(equal("POST"))
+                    expect(httpClient.lastRequest!.url?.absoluteString).to(equal(expectedURL?.absoluteString))
+                    expect(httpClient.lastRequest!.httpMethod).to(equal("POST"))
                 }
 
                 it("includes the player params in the body") {
-                    httpClient.setResponse(self.toJSON([]))
+                    httpClient.setResponse(self.emptyJSONResponse())
 
                     slamApi.addMatch("Taka", playerTwo: "Emmanuel", onSuccess: {})
 
@@ -164,7 +168,7 @@ class SlamAPISpec: QuickSpec {
                     let onSuccess = { () -> Void in
                         callbackCalled = true
                     }
-                    httpClient.setResponse(self.toJSON([]))
+                    httpClient.setResponse(self.emptyJSONResponse())
 
                     slamApi.addMatch("Taka", playerTwo: "Emmanuel", onSuccess: onSuccess)
 
@@ -174,13 +178,13 @@ class SlamAPISpec: QuickSpec {
 
             describe("Fetching the current queue") {
                 it("makes an HTTP request") {
-                    httpClient.setResponse(self.toJSON([]))
+                    httpClient.setResponse(self.toJSON([] as AnyObject))
 
                     slamApi.getQueue({(matches: [Match]) in })
 
                     expect(httpClient.wasRequestMade).to(beTrue())
                     let expectedURL = NSURL(string: slamApi.getCurrentQueueURL)
-                    expect(httpClient.lastRequest!.URL).to(equal(expectedURL))
+                    expect(httpClient.lastRequest!.url?.absoluteString).to(equal(expectedURL?.absoluteString))
                 }
 
                 it("passes the parsed match to the callback") {
@@ -193,7 +197,7 @@ class SlamAPISpec: QuickSpec {
                         "id": "id",
                         "playerOne": "Taka",
                         "playerTwo": "Eric"
-                    ]]))
+                    ]] as AnyObject))
 
                     slamApi.getQueue(setReturnedMatches)
 
@@ -216,7 +220,7 @@ class SlamAPISpec: QuickSpec {
                         "id": "2",
                         "playerOne": "C",
                         "playerTwo": "D"
-                    ]]))
+                    ]] as AnyObject))
 
                     slamApi.getQueue(setReturnedMatches)
 
@@ -226,22 +230,22 @@ class SlamAPISpec: QuickSpec {
 
             describe("removing a match from the queue") {
                 it("makes an http request") {
-                    httpClient.setResponse(self.toJSON([]))
+                    httpClient.setResponse(self.emptyJSONResponse())
 
                     slamApi.removeMatchFromQueue("23", onSuccess: {() -> Void in })
 
                     expect(httpClient.wasRequestMade).to(beTrue())
-                    expect(httpClient.lastRequest!.HTTPMethod).to(equal("DELETE"))
+                    expect(httpClient.lastRequest!.httpMethod).to(equal("DELETE"))
                 }
 
                 it("configures the url properly") {
-                    httpClient.setResponse(self.toJSON([]))
+                    httpClient.setResponse(self.emptyJSONResponse())
 
                     slamApi.removeMatchFromQueue("23", onSuccess: {() -> Void in })
 
                     let urlString = "\(slamApi.removeMatchFromQueueURL)?id=23"
                     let expectedURL = NSURL(string: urlString)
-                    expect(httpClient.lastRequest!.URL).to(equal(expectedURL))
+                    expect(httpClient.lastRequest!.url?.absoluteString).to(equal(expectedURL?.absoluteString))
                 }
             }
         }

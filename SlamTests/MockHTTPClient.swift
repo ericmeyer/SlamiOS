@@ -4,7 +4,7 @@ import Slam
 class MockHTTPClient: HTTPClient {
 
     var wasRequestMade: Bool
-    var lastRequest: NSURLRequest?
+    var lastRequest: URLRequest?
     var response: String
     var lastRequestBody: String?
 
@@ -13,18 +13,18 @@ class MockHTTPClient: HTTPClient {
         self.response = ""
     }
 
-    func makeRequest(request: NSURLRequest, onSuccess: (NSData) -> Void) {
+    func makeRequest(_ request: URLRequest, onSuccess: @escaping (Data) -> Void) {
         self.wasRequestMade = true
         self.lastRequest = request
-        if let body = request.HTTPBody {
-            let string = NSString(data: body, encoding: NSUTF8StringEncoding) as! String
+        if let body = request.httpBody {
+            let string = NSString(data: body, encoding: String.Encoding.utf8.rawValue) as! String
             self.lastRequestBody = string
         }
-        let data: NSData = response.dataUsingEncoding(NSUTF8StringEncoding)!
+        let data: Data = response.data(using: String.Encoding.utf8)!
         onSuccess(data)
     }
 
-    func setResponse(response: String) {
+    func setResponse(_ response: String) {
         self.response = response
     }
 }

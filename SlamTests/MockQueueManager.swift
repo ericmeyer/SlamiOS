@@ -11,11 +11,11 @@ class MockQueueManager: QueueManager {
         queueView = QueueView(display: UITableView())
     }
 
-    func loadQueue(callback: () -> Void) {
+    func loadQueue(_ callback: @escaping () -> Void) {
         reloadQueueCalled = true
     }
 
-    func removeMatch(matchId: String) {
+    func removeMatch(_ matchId: String) {
         removeMatchWasCalled = true
     }
 }

@@ -1,22 +1,23 @@
 import Foundation
 
-public class APIManagedQueue: QueueManager {
-    public var api: SlamAPI
-    public var queueView: QueueView
+open class APIManagedQueue: QueueManager {
+
+    open var api: SlamAPI
+    open var queueView: QueueView
 
     public init(queueView: QueueView) {
         self.api = SlamAPI(httpClient: AsynchronousHTTPClient())
         self.queueView = queueView
     }
 
-    public func loadQueue(onSuccess: () -> Void) {
+    open func loadQueue(_ onSuccess: @escaping () -> Void) {
         api.getQueue({(matches: [Match]) in
             self.queueView.showMatches(matches)
             onSuccess()
         })
     }
 
-    public func removeMatch(matchID: String) {
+    open func removeMatch(_ matchID: String) {
         api.removeMatchFromQueue(matchID, onSuccess: {
             self.queueView.removedMatch()
         })

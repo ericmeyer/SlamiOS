@@ -1,26 +1,26 @@
 import UIKit
 
-public class ShowQueueViewController: UIViewController {
-    @IBOutlet weak public var currentQueue: UITableView!
+open class ShowQueueViewController: UIViewController {
+    @IBOutlet weak open var currentQueue: UITableView!
 
-    @IBOutlet public weak var refreshQueueButton: UIBarButtonItem!
-    @IBOutlet public weak var addMatchToQueueButton: UIBarButtonItem!
+    @IBOutlet open weak var refreshQueueButton: UIBarButtonItem!
+    @IBOutlet open weak var addMatchToQueueButton: UIBarButtonItem!
 
-    public var queueManager: QueueManager?
-    public var queueView: QueueView?
+    open var queueManager: QueueManager?
+    open var queueView: QueueView?
 
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         initializeDelegates()
     }
 
-    override public func viewWillAppear(animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         if (!self.isRunningTests()) {
             refreshQueue()
         }
     }
 
-    public func initializeDelegates() {
+    open func initializeDelegates() {
         queueView = QueueView(display: currentQueue, onDelete: removeMatch)
         if queueManager == nil {
             queueManager = APIManagedQueue(
@@ -30,30 +30,30 @@ public class ShowQueueViewController: UIViewController {
         currentQueue!.dataSource = queueView
     }
 
-    @IBAction public func refreshQueue() {
+    @IBAction open func refreshQueue() {
         disableButtons()
         queueManager!.loadQueue(enableButtons)
     }
 
-    public func enableButtons() {
-        refreshQueueButton.enabled = true
-        addMatchToQueueButton.enabled = true
+    open func enableButtons() {
+        refreshQueueButton.isEnabled = true
+        addMatchToQueueButton.isEnabled = true
     }
 
-    public func disableButtons() {
-        refreshQueueButton.enabled = false
-        addMatchToQueueButton.enabled = false
+    open func disableButtons() {
+        refreshQueueButton.isEnabled = false
+        addMatchToQueueButton.isEnabled = false
     }
 
-    @IBAction func cancelAddMatch(segue: UIStoryboardSegue) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelAddMatch(_ segue: UIStoryboardSegue) {
+        dismiss(animated: true, completion: nil)
     }
 
-    private func removeMatch(matchId: String) {
+    fileprivate func removeMatch(_ matchId: String) {
         self.queueManager!.removeMatch(matchId)
     }
 
-    private func isRunningTests() -> Bool {
+    fileprivate func isRunningTests() -> Bool {
         return true
 //        let environment = NSProcessInfo.processInfo().environment
 //        let injectBundle = environment["XCInjectBundle"] 

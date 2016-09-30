@@ -1,6 +1,6 @@
 import Foundation
 
-public class PostBody {
+open class PostBody {
 
     let params: [String:String]
 
@@ -8,17 +8,17 @@ public class PostBody {
         self.params = params
     }
 
-    public func asString() -> String {
+    open func asString() -> String {
         var pairs: [String] = []
         for (key, value) in params {
             pairs.append("\(encode(key))=\(encode(value))")
         }
-        return pairs.joinWithSeparator("&")
+        return pairs.joined(separator: "&")
     }
 
-    private func encode(value: String) -> String {
-        let charSet = NSCharacterSet.URLHostAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
-        charSet.removeCharactersInString("&")
-        return value.stringByAddingPercentEncodingWithAllowedCharacters(charSet)!
+    fileprivate func encode(_ value: String) -> String {
+        let charSet = (CharacterSet.urlHostAllowed as NSCharacterSet).mutableCopy() as! NSMutableCharacterSet
+        charSet.removeCharacters(in: "&")
+        return value.addingPercentEncoding(withAllowedCharacters: charSet as CharacterSet)!
     }
 }

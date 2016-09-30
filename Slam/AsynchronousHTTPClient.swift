@@ -3,10 +3,10 @@ import Foundation
 public class AsynchronousHTTPClient: HTTPClient {
     public init() {}
 
-    public func makeRequest(request: NSURLRequest, onSuccess: (NSData) -> Void) {
+    public func makeRequest(_ request: URLRequest, onSuccess: @escaping (Data) -> Void) {
         NSURLConnection.sendAsynchronousRequest(
             request,
-            queue: NSOperationQueue.mainQueue(),
+            queue: OperationQueue.main,
             completionHandler: {(response, data, error) in
                 onSuccess(data!)
             }

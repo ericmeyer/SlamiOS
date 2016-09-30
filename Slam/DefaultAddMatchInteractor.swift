@@ -1,4 +1,4 @@
-public class DefaultAddMatchInteractor : AddMatchInteractor {
+open class DefaultAddMatchInteractor : AddMatchInteractor {
 
     let view : AddMatchView
     let api : SlamAPI
@@ -8,7 +8,7 @@ public class DefaultAddMatchInteractor : AddMatchInteractor {
         self.api = api
     }
 
-    public func attemptAdd(playerOne playerOne: String, playerTwo: String) {
+    open func attemptAdd(playerOne: String, playerTwo: String) {
         api.addMatch(playerOne,
             playerTwo: playerTwo,
             onSuccess: {() -> Void in
@@ -17,7 +17,7 @@ public class DefaultAddMatchInteractor : AddMatchInteractor {
 
     }
 
-    public func validateInput(playerOne playerOne: String, playerTwo: String) {
+    open func validateInput(playerOne: String, playerTwo: String) {
         if (playerOne == "" || playerTwo == "") {
             view.inputIsInvalid()
         } else {

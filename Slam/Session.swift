@@ -1,7 +1,7 @@
-public class Session {
+open class Session {
 
-    public var token: String?
-    public var isAuthenticated = false
+    open var token: String?
+    open var isAuthenticated = false
 
     public init() {}
 

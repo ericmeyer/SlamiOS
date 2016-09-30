@@ -5,29 +5,29 @@ import Foundation
 
 extension NSURLConnection {
 
-    private struct SendRequestData {
-        static var lastRequest: NSURLRequest?
-        static var lastQueue: NSOperationQueue?
-        static var dataToReturn: NSData = NSData()
+    fileprivate struct SendRequestData {
+        static var lastRequest: URLRequest?
+        static var lastQueue: OperationQueue?
+        static var dataToReturn: Data = Data()
     }
 
-    class var lastRequest: NSURLRequest? {
+    class var lastRequest: URLRequest? {
         get { return SendRequestData.lastRequest }
         set { SendRequestData.lastRequest = newValue }
     }
-    class var lastQueue: NSOperationQueue? {
+    class var lastQueue: OperationQueue? {
         get { return SendRequestData.lastQueue }
         set { SendRequestData.lastQueue = newValue }
     }
-    class var dataToReturn: NSData {
+    class var dataToReturn: Data {
         get { return SendRequestData.dataToReturn }
         set { SendRequestData.dataToReturn = newValue }
     }
 
-    @objc class func sendAsynchronousRequest(request: NSURLRequest, queue: NSOperationQueue!,  handler: (NSURLResponse!, NSData!, NSError!) -> Void) {
+    @objc class func sendAsynchronousRequest(_ request: URLRequest, queue: OperationQueue!,  handler: (URLResponse?, Data?, NSError?) -> Void) {
         lastRequest = request
         lastQueue = queue
-        handler(NSURLResponse(), dataToReturn, NSError(domain: "Some Error", code: 123, userInfo: nil))
+        handler(URLResponse(), dataToReturn, NSError(domain: "Some Error", code: 123, userInfo: nil))
     }
 
 }
@@ -44,7 +44,7 @@ class AsynchronousHTTPClientSpec: QuickSpec {
             it("sends the request using NSURLConnection") {
                 let request = NSURLRequest()
 
-                client!.makeRequest(request, onSuccess: {(data: NSData) in
+                client!.makeRequest(request as URLRequest, onSuccess: {(data: Data) in
                 })
 
 //                expect(NSURLConnection.lastRequest).toNot(beNil())
@@ -52,7 +52,7 @@ class AsynchronousHTTPClientSpec: QuickSpec {
             }
 
             it("sends the request using the main queue") {
-                client!.makeRequest(NSURLRequest(), onSuccess: {(data: NSData) in
+                client!.makeRequest(NSURLRequest() as URLRequest, onSuccess: {(data: Data) in
                 })
 
 //                expect(NSURLConnection.lastQueue).toNot(beNil())
@@ -61,7 +61,7 @@ class AsynchronousHTTPClientSpec: QuickSpec {
 
             it("executes the success callback with the returned data") {
                 let expectedData = NSData()
-                NSURLConnection.dataToReturn = expectedData
+                NSURLConnection.dataToReturn = expectedData as Data
 
 //                var actualData: NSData?
 //                client!.makeRequest(NSURLRequest(), onSuccess: {(data: NSData) in

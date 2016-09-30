@@ -1,62 +1,62 @@
 import Foundation
 
-public class SlamAPI {
-    public let getCurrentQueueURL = "http://slamapi.herokuapp.com/matches"
-    public let addMatchURL = "http://slamapi.herokuapp.com/matches"
-    public let removeMatchFromQueueURL = "http://slamapi.herokuapp.com/matches"
-    public let loginURL = "http://slamapi.herokuapp.com/login"
+open class SlamAPI {
+    open let getCurrentQueueURL = "http://slamapi.herokuapp.com/matches"
+    open let addMatchURL = "http://slamapi.herokuapp.com/matches"
+    open let removeMatchFromQueueURL = "http://slamapi.herokuapp.com/matches"
+    open let loginURL = "http://slamapi.herokuapp.com/login"
     let httpClient: HTTPClient
 
     public init(httpClient: HTTPClient) {
         self.httpClient = httpClient
     }
 
-    public func attemptLogin(email email: String, password: String, onSuccess: (session: Session) -> Void) {
+    open func attemptLogin(email: String, password: String, onSuccess: @escaping (_ session: Session) -> Void) {
         let request = NSMutableURLRequest(
-            URL: NSURL(string: loginURL)!
+            url: URL(string: loginURL)!
         )
-        request.HTTPMethod = "POST"
+        request.httpMethod = "POST"
         let credentials = [
             "email": email,
             "password": password
         ]
         let postString = PostBody(params: credentials).asString()
-        request.HTTPBody = (postString as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+        request.httpBody = (postString as NSString).data(using: String.Encoding.utf8.rawValue)
 
-        httpClient.makeRequest(request, onSuccess: {(data: NSData) in
+        httpClient.makeRequest(request as URLRequest, onSuccess: {(data: Data) in
             let sessionData: NSDictionary = self.deserializeJSON(data) as! NSDictionary
             let session = Session()
             session.token = sessionData["token"] as! String?
             if let isAuthenticated = sessionData["success"] as? Bool {
                 session.isAuthenticated = isAuthenticated
             }
-            onSuccess(session: session)
+            onSuccess(session)
         })
     }
 
-    public func addMatch(playerOne: String, playerTwo: String, onSuccess: () -> Void) {
+    open func addMatch(_ playerOne: String, playerTwo: String, onSuccess: @escaping () -> Void) {
         let request = NSMutableURLRequest(
-            URL: NSURL(string: addMatchURL)!
+            url: URL(string: addMatchURL)!
         )
 
-        request.HTTPMethod = "POST"
+        request.httpMethod = "POST"
         let players = [
             "playerOne": playerOne,
             "playerTwo": playerTwo
         ]
         let postString = PostBody(params: players).asString()
-        request.HTTPBody = (postString as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+        request.httpBody = (postString as NSString).data(using: String.Encoding.utf8.rawValue)
 
-        httpClient.makeRequest(request, onSuccess: {(data: NSData) in
+        httpClient.makeRequest(request as URLRequest, onSuccess: {(data: Data) in
             onSuccess()
         })
     }
 
-    public func getQueue(callback: ([Match]) -> Void) {
+    open func getQueue(_ callback: @escaping ([Match]) -> Void) {
         let request = NSMutableURLRequest(
-            URL: NSURL(string: getCurrentQueueURL)!
+            url: URL(string: getCurrentQueueURL)!
         )
-        httpClient.makeRequest(request, onSuccess: {(data: NSData) in
+        httpClient.makeRequest(request as URLRequest, onSuccess: {(data: Data) in
             let matchDataList: [NSDictionary] = self.deserializeJSON(data) as! [NSDictionary]
             callback(matchDataList.map({matchData in
                 Match(matchData: matchData as! [String : String])
@@ -64,21 +64,21 @@ public class SlamAPI {
         })
     }
 
-    public func removeMatchFromQueue(id: String, onSuccess: () -> Void) {
+    open func removeMatchFromQueue(_ id: String, onSuccess: @escaping () -> Void) {
         let request = NSMutableURLRequest(
-            URL: NSURL(string: "\(removeMatchFromQueueURL)?id=\(id)")!
+            url: URL(string: "\(removeMatchFromQueueURL)?id=\(id)")!
         )
 
-        request.HTTPMethod = "DELETE"
-        httpClient.makeRequest(request, onSuccess: {(data: NSData) in
+        request.httpMethod = "DELETE"
+        httpClient.makeRequest(request as URLRequest, onSuccess: {(data: Data) in
             onSuccess()
         })
 
     }
 
-    private func deserializeJSON(data: NSData) -> AnyObject? {
-        return try? NSJSONSerialization.JSONObjectWithData(
-            data,
-            options: NSJSONReadingOptions.MutableContainers)
+    fileprivate func deserializeJSON(_ data: Data) -> AnyObject? {
+        return try! JSONSerialization.jsonObject(
+            with: data,
+            options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject?
     }
 }

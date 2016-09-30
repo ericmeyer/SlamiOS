@@ -1,24 +1,24 @@
 import UIKit
 
-public class LoginViewController: UIViewController, AuthenticationView {
+open class LoginViewController: UIViewController, AuthenticationView {
 
-    @IBOutlet weak public var emailTextField: UITextField!
-    @IBOutlet weak public var passwordTextField: UITextField!
-    @IBOutlet public var interactor: AuthenticationInteractor!
+    @IBOutlet weak open var emailTextField: UITextField!
+    @IBOutlet weak open var passwordTextField: UITextField!
+    @IBOutlet open var interactor: AuthenticationInteractor!
 
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         interactor.view = self
     }
 
-    @IBAction public func attemptLogin() {
+    @IBAction open func attemptLogin() {
         interactor.attemptLogin(
             email: emailTextField.text!,
             password: passwordTextField.text!
         )
     }
 
-    public func loginWasSuccessful() {
-        self.performSegueWithIdentifier("showQueue", sender: self)
+    open func loginWasSuccessful() {
+        self.performSegue(withIdentifier: "showQueue", sender: self)
     }
 
 }

@@ -30,14 +30,14 @@ class QueueViewSpec: QuickSpec {
                 it("includes player one in the cell's label") {
                     let match = Match(matchData: matchData)
                     queueView!.showMatches([match])
-                    let cell = queueView!.tableView(display!, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+                    let cell = queueView!.tableView(display!, cellForRowAt: IndexPath(row: 0, section: 0))
                     expect(cell.textLabel!.text).to(contain("One"))
                 }
 
                 it("includes player two in the cell's label") {
                     let match = Match(matchData: matchData)
                     queueView!.showMatches([match])
-                    let cell = queueView!.tableView(display!, cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+                    let cell = queueView!.tableView(display!, cellForRowAt: IndexPath(row: 0, section: 0))
                     expect(cell.textLabel!.text).to(contain("Two"))
                 }
             }
@@ -47,17 +47,16 @@ class QueueViewSpec: QuickSpec {
                 context("When editing style is delete") {
                     it("removes the match from the view") {
                         let match = Match(matchData: matchData)
-                        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                        let indexPath = IndexPath(row: 0, section: 0)
                         queueView!.showMatches([match])
-                        queueView!.tableView(display!, commitEditingStyle: .Delete, forRowAtIndexPath: indexPath)
-
+                        queueView!.tableView(display!, commit: .delete, forRowAt: indexPath)
                         expect(display!.wasRowDeleted).to(beTrue())
                         expect(queueView!.matches).to(beEmpty())
                     }
 
                     it("invokes the callback") {
                         let match = Match(matchData: matchData)
-                        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                        let indexPath = IndexPath(row: 0, section: 0)
                         var matchId = "0"
                         let onDelete = {(id) in
                             matchId = id
@@ -66,7 +65,7 @@ class QueueViewSpec: QuickSpec {
                         queueView = QueueView(display: display!, onDelete: onDelete)
                         queueView!.showMatches([match])
 
-                        queueView!.tableView(display!, commitEditingStyle: .Delete, forRowAtIndexPath: indexPath)
+                        queueView!.tableView(display!, commit: .delete, forRowAt: indexPath)
 
                         expect(matchId).to(equal(match.id))
                     }
@@ -75,7 +74,7 @@ class QueueViewSpec: QuickSpec {
                 context("When editing style is not delete") {
                     it("does not invoke the callback") {
                         let match = Match(matchData: matchData)
-                        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                        let indexPath = IndexPath(row: 0, section: 0)
                         var matchDeleted = "0"
                         let onDelete = {
                             id in matchDeleted = id
@@ -84,16 +83,16 @@ class QueueViewSpec: QuickSpec {
                         queueView = QueueView(display: display!, onDelete: onDelete)
                         queueView!.showMatches([match])
 
-                        queueView!.tableView(display!, commitEditingStyle: .Insert, forRowAtIndexPath: indexPath)
+                        queueView!.tableView(display!, commit: .insert, forRowAt: indexPath)
 
                         expect(matchDeleted).to(equal("0"))
                     }
 
                     it("does not remove the match from the view") {
                         let match = Match(matchData: matchData)
-                        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                        let indexPath = IndexPath(row: 0, section: 0)
                         queueView!.showMatches([match])
-                        queueView!.tableView(display!, commitEditingStyle: .Insert, forRowAtIndexPath: indexPath)
+                        queueView!.tableView(display!, commit: .insert, forRowAt: indexPath)
 
                         expect(display!.wasRowDeleted).to(beFalse())
                         expect(queueView!.matches).toNot(beEmpty())

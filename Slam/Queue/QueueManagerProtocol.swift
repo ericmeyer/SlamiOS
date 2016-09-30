@@ -1,8 +1,7 @@
 public protocol QueueManager {
+    
     var queueView: QueueView { get set }
-
-    func loadQueue(onSuccess: () -> Void)
-
-    func removeMatch(matchId: String)
+    func loadQueue(_ onSuccess: @escaping () -> Void)
+    func removeMatch(_ matchId: String)
 
 }

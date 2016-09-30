@@ -1,5 +1,5 @@
 import Foundation
 
 public protocol HTTPClient {
-    func makeRequest(request: NSURLRequest, onSuccess: (NSData) -> Void)
+    func makeRequest(_ request: URLRequest, onSuccess: @escaping (Data) -> Void)
 }
