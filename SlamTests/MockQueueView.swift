@@ -4,7 +4,7 @@ class MockQueueView: QueueView {
     var wasShowMatchesCalled = false
     var wasRemovedMatchCalled = false
 
-    override func showMatches(matches: [Match]) {
+    override func showMatches(_ matches: [Match]) {
         self.wasShowMatchesCalled = true
     }
 

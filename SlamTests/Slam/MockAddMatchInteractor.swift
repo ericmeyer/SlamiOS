@@ -12,13 +12,13 @@ class MockAddMatchInteractor : AddMatchInteractor {
         self.wasToldToValidateInput = false
     }
 
-    func attemptAdd(playerOne playerOne: String, playerTwo: String) {
+    func attemptAdd(playerOne: String, playerTwo: String) {
         self.wasAddMatchCalled = true
         self.givenPlayerOne = playerOne
         self.givenPlayerTwo = playerTwo
     }
 
-    func validateInput(playerOne playerOne: String, playerTwo: String) {
+    func validateInput(playerOne: String, playerTwo: String) {
         self.wasToldToValidateInput = true
         self.givenPlayerOne = playerOne
         self.givenPlayerTwo = playerTwo

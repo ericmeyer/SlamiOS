@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -17,20 +17,6 @@
                BlueprintIdentifier = "07CBE7B61AA104FE00228BE9"
                BuildableName = "Slam.app"
                BlueprintName = "Slam"
-               ReferencedContainer = "container:Slam.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "07CBE7CB1AA104FE00228BE9"
-               BuildableName = "SlamTests.xctest"
-               BlueprintName = "SlamTests"
                ReferencedContainer = "container:Slam.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

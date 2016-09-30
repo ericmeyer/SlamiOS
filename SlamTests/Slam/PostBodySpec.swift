@@ -4,7 +4,7 @@ import Slam
 
 class PostBodySpec: QuickSpec {
 
-    func asPostString(params: [String:String]) -> String {
+    func asPostString(_ params: [String:String]) -> String {
         let postBody = PostBody(params: params)
         return postBody.asString()
     }

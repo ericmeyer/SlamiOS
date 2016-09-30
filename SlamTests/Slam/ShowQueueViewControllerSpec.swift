@@ -63,8 +63,8 @@ class ShowQueueViewControllerSpec: QuickSpec {
 
             it("disables the buttons") {
                 controller.refreshQueue()
-                expect(controller.refreshQueueButton.enabled).to(beFalse())
-                expect(controller.addMatchToQueueButton.enabled).to(beFalse())
+                expect(controller.refreshQueueButton.isEnabled).to(beFalse())
+                expect(controller.addMatchToQueueButton.isEnabled).to(beFalse())
             }
 
             it("reloads the queue") {
@@ -73,11 +73,11 @@ class ShowQueueViewControllerSpec: QuickSpec {
             }
 
             it("reenables the functionality of the disable buttons") {
-                refreshQueueButton.enabled = false
-                addMatchToQueueButton.enabled = false
+                refreshQueueButton.isEnabled = false
+                addMatchToQueueButton.isEnabled = false
                 controller.enableButtons()
-                expect(refreshQueueButton.enabled).to(beTrue())
-                expect(addMatchToQueueButton.enabled).to(beTrue())
+                expect(refreshQueueButton.isEnabled).to(beTrue())
+                expect(addMatchToQueueButton.isEnabled).to(beTrue())
             }
         }
     }

@@ -20,7 +20,7 @@ class AddMatchViewControllerSpec: QuickSpec {
                 let addMatchButton = UIButton()
                 controller.addMatchButton = addMatchButton
                 controller.viewDidLoad()
-                expect(controller.addMatchButton.enabled).to(beFalse())
+                expect(controller.addMatchButton.isEnabled).to(beFalse())
             }
         }
 
@@ -88,14 +88,14 @@ class AddMatchViewControllerSpec: QuickSpec {
             it("disables the add match button when the input is invalid") {
                 controller.inputIsInvalid()
 
-                expect(controller.addMatchButton.enabled).to(beFalse())
+                expect(controller.addMatchButton.isEnabled).to(beFalse())
             }
 
             it("enables the add match button when the input is valid") {
                 controller.inputIsInvalid()
                 controller.inputIsValid()
 
-                expect(controller.addMatchButton.enabled).to(beTrue())
+                expect(controller.addMatchButton.isEnabled).to(beTrue())
             }
         }
 

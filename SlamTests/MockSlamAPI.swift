@@ -12,7 +12,7 @@ class MockSlamAPI: SlamAPI {
     var loggedInEmail: String?
     var loggedInPassword: String?
 
-    override func attemptLogin(email email: String, password: String, onSuccess: (Session) -> Void) {
+    override func attemptLogin(email: String, password: String, onSuccess: @escaping (Session) -> Void) {
         loggedInEmail = email
         loggedInPassword = password
         wasLoginAttempted = true
@@ -21,19 +21,19 @@ class MockSlamAPI: SlamAPI {
         }
     }
 
-    override func getQueue(callback: ([Match]) -> Void) {
+    override func getQueue(_ callback: @escaping ([Match]) -> Void) {
         receivedGetQueue = true
         callback(matches)
     }
 
-    override func addMatch(playerOne: String, playerTwo: String, onSuccess: () -> Void) {
+    override func addMatch(_ playerOne: String, playerTwo: String, onSuccess: @escaping () -> Void) {
         wasMatchAdded = true
         if addMatchSuccessful {
             onSuccess()
         }
     }
 
-    override func removeMatchFromQueue(id: String, onSuccess: () -> Void) {
+    override func removeMatchFromQueue(_ id: String, onSuccess: @escaping () -> Void) {
         removeMatchWasCalled = true
         removedMatchID = id
         onSuccess()

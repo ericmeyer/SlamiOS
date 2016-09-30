@@ -1,47 +1,47 @@
 import UIKit
 
-public class AddMatchViewController: UIViewController, AddMatchView {
+open class AddMatchViewController: UIViewController, AddMatchView {
 
-    public var interactor : AddMatchInteractor?
+    open var interactor : AddMatchInteractor?
 
-    @IBOutlet weak public var playerOneInput: UITextField!
-    @IBOutlet weak public var playerTwoInput: UITextField!
-    @IBOutlet weak public var addMatchButton: UIButton!
+    @IBOutlet weak open var playerOneInput: UITextField!
+    @IBOutlet weak open var playerTwoInput: UITextField!
+    @IBOutlet weak open var addMatchButton: UIButton!
 
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         interactor = DefaultAddMatchInteractor(
             view: self,
             api: SlamAPI(httpClient: AsynchronousHTTPClient())
         )
-        addMatchButton.enabled = false
+        addMatchButton.isEnabled = false
     }
 
-    @IBAction public func validateInput() {
+    @IBAction open func validateInput() {
         interactor?.validateInput(
             playerOne: playerOneInput!.text!,
             playerTwo: playerTwoInput!.text!
         )
     }
 
-    @IBAction public func addMatch() {
+    @IBAction open func addMatch() {
         interactor?.attemptAdd(
             playerOne: playerOneInput!.text!,
             playerTwo: playerTwoInput!.text!
         )
     }
 
-    public func matchWasAdded() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    open func matchWasAdded() {
+        self.dismiss(animated: true, completion: nil)
         self.removeFromParentViewController()
     }
 
-    public func inputIsValid() {
-        addMatchButton.enabled = true
+    open func inputIsValid() {
+        addMatchButton.isEnabled = true
     }
 
-    public func inputIsInvalid() {
-        addMatchButton.enabled = false
+    open func inputIsInvalid() {
+        addMatchButton.isEnabled = false
     }
 
 }

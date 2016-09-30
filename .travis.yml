@@ -1,7 +1,8 @@
+before_install:
+  - bundle
+before_script: security delete-certificate -c "Apple Worldwide Developer Relations Certification Authority" /Library/Keychains/System.keychain; security delete-certificate -c "Apple Worldwide Developer Relations Certification Authority" /Library/Keychains/login.keychain; curl -O -L http://developer.apple.com/certificationauthority/AppleWWDRCA.cer; security import AppleWWDRCA.cer  -k ~/Library/Keychains/login.keychain -A
 language: objective-c
 notifications:
   email: false
-osx_image: xcode7.2
-xcode_scheme: Slam
-xcode_sdk: iphonesimulator9.2
-xcode_workspace: Slam.xcworkspace
+osx_image: xcode8
+script: xcodebuild -workspace Slam.xcworkspace -scheme Slam -sdk iphonesimulator10.0 -destination 'platform=iOS Simulator,name=iPhone 6' build test
